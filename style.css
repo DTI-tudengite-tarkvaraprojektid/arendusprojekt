@@ -1,0 +1,63 @@
+#inputDiv{
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+#inputFile{
+    margin-left: 140px;
+}
+
+#output{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+table {
+    border-spacing: 200px 0;
+}
+
+/*
+tr:first-of-type {
+    font-size: larger;
+    font-weight: bold;
+}
+*/
+
+td {
+    padding: 15px 0;
+    padding-left: 50px;
+}
+
+
+#editPage{
+    
+    position: absolute;
+    right: 230px;
+    margin-top: 20px;
+}
+
+
+#delete{
+    float: right;
+}
+#add{
+    position: absolute;
+    right: 15px;
+    margin-right: 60px;
+}
+#cancel{
+    position: absolute;
+    right: 180px;
+}
+
+#studentInfo_wrapper{
+    margin: 5%;
+}
+.no-click {
+    pointer-events: none;
+}
+    

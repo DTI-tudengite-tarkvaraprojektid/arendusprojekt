@@ -1,0 +1,14 @@
+Lisatud: "John Smith Computer Science IFIF1980613 john@school.com"| Kuupäev: 2020-05-25
+Lisatud: "Andres Sepp Informaatika IFIF1123214 andres@kool.ee"| Kuupäev: 2020-05-25
+Lisatud: "John Smith Computer Science IFIF1980613 john@school.com"| Kuupäev: 2020-05-25
+Lisatud: "Andres Sepp Informaatika IFIF1123214 andres@kool.ee"| Kuupäev: 2020-05-25
+Lisatud: "John Smith Computer Science IFIF1980613 john@school.com"| Kuupäev: 2020-06-08
+Lisatud: "Andres Sepp Informaatika IFIF1123214 andres@kool.ee"| Kuupäev: 2020-06-08
+Kustutatud id: 99
+Muudetud: ID - 98 tulp - name väärtus- Andres Tepp| Kuupäev: 2020-06-08
+Muudetud: ID - 98 tulp - field väärtus- Informaatika| Kuupäev: 2020-06-08
+Lisatud: "John Smith Computer Science IFIF1980613 john@school.com"| Kuupäev: 2020-06-08
+Lisatud: "Andres Sepp Informaatika IFIF1123214 andres@kool.ee"| Kuupäev: 2020-06-08
+Kustutatud id: 91
+Kustutatud id: 102
+Kustutatud id: 101
