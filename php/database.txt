@@ -12,3 +12,6 @@ Lisatud: "Andres Sepp Informaatika IFIF1123214 andres@kool.ee"| Kuupäev: 2020-0
 Kustutatud id: 91
 Kustutatud id: 102
 Kustutatud id: 101
+Muudetud: ID - 120 tulp - name väärtus- Andres Sepp| Kuupäev: 2020-06-09
+Muudetud: ID - 1 tulp - email väärtus- filip.taik@hotmail.com| Kuupäev: 2020-06-09
+Kustutatud id: 1

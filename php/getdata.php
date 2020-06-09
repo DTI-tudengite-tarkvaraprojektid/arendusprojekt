@@ -9,16 +9,34 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $columns = array("name", "field", "studentid", "email");
+    $columns = array(
+        "pnimi", "enimi", "idkood", "email", "opilaskood","oppekava",
+        "suund","finants","tasumata_arved","koormus","sem","puhkusel",
+        "valisoppe_sem","etapp","etapp","eap","kkh_ap","kkh_eap","kkh_koik"
+    );
 
-    $query = "SELECT * FROM Students";
+    $query = "SELECT * FROM Opilased";
 
     if(isset($_POST["search"]["value"])){
         $query .= '
-            WHERE name LIKE "%'.$_POST["search"]["value"].'%"
-            OR field LIKE "%'.$_POST["search"]["value"].'%"
-            OR studentid LIKE "%'.$_POST["search"]["value"].'%"
+            WHERE pnimi LIKE "%'.$_POST["search"]["value"].'%"
+            OR enimi LIKE "%'.$_POST["search"]["value"].'%"
+            OR idkood LIKE "%'.$_POST["search"]["value"].'%"
             OR email LIKE "%'.$_POST["search"]["value"].'%"
+            OR opilaskood LIKE "%'.$_POST["search"]["value"].'%"
+            OR oppekava LIKE "%'.$_POST["search"]["value"].'%"
+            OR suund LIKE "%'.$_POST["search"]["value"].'%"
+            OR finants LIKE "%'.$_POST["search"]["value"].'%"
+            OR tasumata_arved LIKE "%'.$_POST["search"]["value"].'%"
+            OR koormus LIKE "%'.$_POST["search"]["value"].'%"
+            OR sem LIKE "%'.$_POST["search"]["value"].'%"
+            OR puhkusel LIKE "%'.$_POST["search"]["value"].'%"
+            OR valisoppe_sem LIKE "%'.$_POST["search"]["value"].'%"
+            OR etapp LIKE "%'.$_POST["search"]["value"].'%"
+            OR eap LIKE "%'.$_POST["search"]["value"].'%"
+            OR kkh_ap LIKE "%'.$_POST["search"]["value"].'%"
+            OR kkh_eap LIKE "%'.$_POST["search"]["value"].'%"
+            OR kkh_koik LIKE "%'.$_POST["search"]["value"].'%"
         ';
     }
 
@@ -53,11 +71,13 @@
 
     while($row = mysqli_fetch_array($result)){
         $sub_array = array();
-        $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="name">' . $row["name"] . '</div>';
-        $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="field">' . $row["field"] . '</div>';
-        $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="studentid">' . $row["studentid"] . '</div>';
-        $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="email">' . $row["email"] . '</div>';
-        $sub_array[] = '<button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$row["id"].'">Kustuta</button>';
+        $sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="enimi">' . $row["enimi"] . '</div>';
+        $sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="pnimi">' . $row["pnimi"] . '</div>';
+        $sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="oppekava">' . $row["oppekava"] . '</div>';
+        $sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="opilaskood">' . $row["opilaskood"] . '</div>';
+        $sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="email_kool">' . $row["email_kool"] . '</div>';
+        $sub_array[] = '<button type="button" class="btn btn-primary view_data"  id="'.$row["id"].'">Profiil</button> <button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$row["id"].'">Kustuta</button> <button type="button" class="btn btn-light" id="id="'.$row["id"].'"">Muuda</button>';
+        //$sub_array[] = ';
         $array[] = $sub_array; 
     }
 
@@ -76,6 +96,8 @@
     );
 
     echo json_encode($output);
+
+
 
 
 ?>

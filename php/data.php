@@ -9,11 +9,6 @@
 
     function storeStudentInfo($allData){
 
-        $myFile = "database.txt";
-        $fileHandle = fopen($myFile, "a+");
-        //$stringData = implode(" ",$allData);
-
-
         print_r(array_chunk($allData, 2));
     
         $results = array();
@@ -28,16 +23,31 @@
         print_r($results[0]);
         $conn = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
     
-        $query = "SELECT ID FROM Students";
+        $query = "SELECT ID FROM Opilased";
         $result = mysqli_query($conn, $query);
         
         if(empty($result)) {
-            $createDb = "CREATE TABLE Students (
+            $createDb = "CREATE TABLE Opilased (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                name VARCHAR(50) NOT NULL,
-                field VARCHAR(50),
-                studentid VARCHAR(50) NOT NULL,
-                email VARCHAR(50)
+                pnimi VARCHAR(50) NOT NULL,
+                enimi VARCHAR(50) NOT NULL,
+                idkood VARCHAR(50),
+                email VARCHAR(50),
+                email_kool VARCHAR(50),
+                opilaskood VARCHAR(50) NOT NULL,
+                oppekava VARCHAR(50),
+                suund VARCHAR(50),
+                finants VARCHAR(50),
+                tasumata_arved VARCHAR(50),
+                koormus VARCHAR(50),
+                sem VARCHAR(50),
+                puhkusel VARCHAR(50),
+                valisoppe_sem VARCHAR(50),
+                etapp VARCHAR(50),
+                eap VARCHAR(20),
+                kkh_ap VARCHAR(20),
+                kkh_eap VARCHAR(20),
+                kkh_koik VARCHAR(20)
             )  ENGINE=INNODB;";
             $result = mysqli_query($conn, $createDb);
         }
@@ -45,14 +55,18 @@
     
         $x = 0;
         while($x <= count() + 1) {
-            
-            $stmt = $conn -> prepare ("INSERT INTO Students (name, field, studentid, email) VALUES(?,?,?,?)");
+            $stmt = $conn -> prepare ("INSERT INTO Opilased (pnimi, enimi, idkood, email, email_kool, opilaskood, oppekava,
+            suund, finants, tasumata_arved, koormus, sem, puhkusel, valisoppe_sem, etapp, eap, kkh_ap, kkh_eap, kkh_koik) 
+            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             echo $conn -> error;
-            //andmetüübid: s - string, i - integer, d - decimal
-            $stmt -> bind_param("ssss", $allData[$x]["Name"], $allData[$x]["Field"], $allData[$x]["StudentID"], $allData[$x]["Email"]);
+            $stmt -> bind_param(
+                "sssssssssssssssssss", $allData[$x][$results[0]],$allData[$x][$results[1]], $allData[$x][$results[2]], 
+                $allData[$x][$results[3]], $allData[$x][$results[4]],$allData[$x][$results[5]],$allData[$x][$results[6]],$allData[$x][$results[7]],
+                $allData[$x][$results[8]],$allData[$x][$results[9]],$allData[$x][$results[10]],$allData[$x][$results[11]],$allData[$x][$results[12]],
+                $allData[$x][$results[13]],$allData[$x][$results[14]],$allData[$x][$results[15]],$allData[$x][$results[16]],$allData[$x][$results[17]],
+                $allData[$x][$results[18]]
+            );
             $stmt -> execute();
-            $datatofile = json_encode($allData[$x]["Name"] . ' ' . $allData[$x]["Field"] . ' ' . $allData[$x]["StudentID"] . ' ' . $allData[$x]["Email"]);
-            fwrite($fileHandle, ("Lisatud: " . $datatofile . "| Kuupäev: ". date('Y-m-d', $_SERVER['REQUEST_TIME']). "\n"));
             $x++;
         }
         if($stmt -> execute()){
@@ -60,19 +74,14 @@
         }
         
 
-        fclose($fileHandle);
+        //fclose($fileHandle);
         $stmt -> close();
         $conn -> close();
         
             
     
     }
-/*
-    $myData = $_GET["data"];
-$myFile = "database.txt";
-$fileHandle = fopen($myFile, "w");
-fwrite($fileHandle, $myData);
-fclose($fileHandle);
-*/
+
+    
     
 ?>

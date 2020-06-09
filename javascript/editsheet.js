@@ -39,7 +39,7 @@ $(document).ready(function(){
     
     }
 
-    
+    /*
     $("#add").click(function(){
         var html = "<tr>"
         html += '<td contenteditable id="data1"></td>'
@@ -50,12 +50,15 @@ $(document).ready(function(){
         html += '</tr>'
         $('#studentInfo tbody').prepend(html)
     })
-
+    */
+    /*
     $(document).on('click', '#insert', function(){
+        
         var name = $("#data1").text()
         var field = $("#data2").text()
         var studentid = $("#data3").text()
         var email = $("#data4").text()
+        
         //var added = event.timeStamp;
 
         if(name != '' && field != '' && studentid != '' && email != ''){
@@ -78,6 +81,7 @@ $(document).ready(function(){
          alert("Täida kõik väljad!")
         }
     })
+    */
    
 
     $(document).on("blur", ".update", function(){
@@ -107,8 +111,51 @@ $(document).ready(function(){
          }, 5000)
         }
     })
-})
 
+    $(document).on("click", ".view_data", function(){
+        var student_id = $(this).attr("id");
+        $.ajax({
+            url: 'php/select.php',
+            method: 'post',
+            data: {student_id: student_id},
+            success: function(data){
+                $('#student_info').html(data)
+                $('#dataModal').modal("show")
+            }
+        })  
+    })
+
+    
+    $(document).on("click", "#editButton", function(){
+        var student_id = $(this).attr("id");
+        console.log(student_id)
+    })
+
+    $('#insert_form').on("submit", function(event){  
+        event.preventDefault();  
+        if($('#lname').val() == "") {  
+             alert("Sisestage perekonnanimi");  
+        } else {  
+             $.ajax({  
+                  url:"php/insertdata.php",  
+                  method:"POST",  
+                  data:$('#insert_form').serialize(),  
+                  beforeSend:function(){  
+                       $('#insert').val("Inserting");  
+                  },  
+                  success:function(data){  
+                        $('#alert_message').html('<div class="alert alert-success">Andmed lisatud!</div>')
+                       $('#insert_form')[0].reset();  
+                       $('#add_data_Modal').modal('hide');  
+                       $('#studentInfo').html(data);  
+                  }  
+             });  
+        }  
+   });  
+
+
+
+})
 
 
 

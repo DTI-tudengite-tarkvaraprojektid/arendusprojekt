@@ -25,6 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
             var first_sheet = workbook.SheetNames[0] // leiab esimese sheedi nime
 
             var worksheet = workbook.Sheets[first_sheet]
+
+            var range = XLSX.utils.decode_range(worksheet['!ref']);
+            range.s.r = 1; // <-- zero-indexed, so setting to 1 will skip row 0
+            worksheet['!ref'] = XLSX.utils.encode_range(range);
+
             jsonText = XLSX.utils.sheet_to_json(worksheet)
             jsonString = JSON.stringify(jsonText)
             console.log(jsonString)
@@ -69,15 +74,3 @@ function sendJSON(){
 function goToEdit(){
     window.open("editdata.html")
 }
-/*
-function saveToFile(){
-    //let JSONstring = JSON.stringify(todos);
-    let newReq = new XMLHttpRequest();
-    let url = "server.php?data=" + encodeURI(JSONstring);
-    newReq.open("GET", url, true);
-    newReq.setRequestHeader("Content-type", "text/plain;charset=UTF-8");
-    newReq.send();
- }
- */
-
-
