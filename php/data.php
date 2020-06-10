@@ -30,11 +30,11 @@
             $createDb = "CREATE TABLE Opilased (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 pnimi VARCHAR(50) NOT NULL,
-                enimi VARCHAR(50) NOT NULL,
+                enimi VARCHAR(50) ,
                 idkood VARCHAR(50),
                 email VARCHAR(50),
                 email_kool VARCHAR(50),
-                opilaskood VARCHAR(50) NOT NULL,
+                opilaskood VARCHAR(50),
                 oppekava VARCHAR(50),
                 suund VARCHAR(50),
                 finants VARCHAR(50),

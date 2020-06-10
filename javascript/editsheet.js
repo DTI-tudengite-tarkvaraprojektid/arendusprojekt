@@ -21,69 +21,8 @@ $(document).ready(function(){
         })
     }
 
-    function updateData(id, columnname, value){
-        $.ajax({
-            url: "php/update.php",
-            method: "POST",
-            data:{id:id, columnname:columnname, value:value},
-            success:function(data){
-                $("#alert_message").html('<div class="alert alert-success">'+ data +'</div>')
-                $('#studentInfo').DataTable().destroy();
-                fetchData()
-            }
-        })
     
-        setInterval(function(){
-            $('#alert_message').html('');
-        }, 5000)
-    
-    }
-
     /*
-    $("#add").click(function(){
-        var html = "<tr>"
-        html += '<td contenteditable id="data1"></td>'
-        html += '<td contenteditable id="data2"></td>'
-        html += '<td contenteditable id="data3"></td>'
-        html += '<td contenteditable id="data4"></td>'
-        html += '<td><button type="button" name="insert" id="insert" class="btn btn-success btn-xs">Sisesta</button></td>'
-        html += '</tr>'
-        $('#studentInfo tbody').prepend(html)
-    })
-    */
-    /*
-    $(document).on('click', '#insert', function(){
-        
-        var name = $("#data1").text()
-        var field = $("#data2").text()
-        var studentid = $("#data3").text()
-        var email = $("#data4").text()
-        
-        //var added = event.timeStamp;
-
-        if(name != '' && field != '' && studentid != '' && email != ''){
-            $.ajax({
-                url:"php/insertdata.php",
-                method:"POST",
-                data:{name:name, field:field, studentid:studentid, email:email},
-                success:function(data){
-                    $('#alert_message').html('<div class="alert alert-success">'+data+'</div>')
-                    $('#studentInfo').DataTable().destroy()
-                    fetchData()
-                }
-            })
-
-            setInterval(function(){
-                $('#alert_message').html('')
-            }, 5000)
-
-        } else {
-         alert("Täida kõik väljad!")
-        }
-    })
-    */
-   
-
     $(document).on("blur", ".update", function(){
         console.log("blurrr")
         var id = $(this).data("id")
@@ -91,7 +30,7 @@ $(document).ready(function(){
         var columnname = $(this).data("column")
         var value = $(this).text()
         updateData(id, columnname, value)    
-    })
+    })*/
     $(document).on('click', '.delete', function(){
         var id = $(this).attr("id");
         if(confirm("Kas olete kindel et soovite kustutada?")){
@@ -121,18 +60,50 @@ $(document).ready(function(){
             success: function(data){
                 $('#student_info').html(data)
                 $('#dataModal').modal("show")
+                //console.log($('#student_info').html(data))
             }
         })  
     })
 
     
-    $(document).on("click", "#editButton", function(){
+    $(document).on("click", ".edit_data", function(){
         var student_id = $(this).attr("id");
-        console.log(student_id)
+        console.log(student_id) 
+        $.ajax({  
+            url:"php/fetch.php",  
+            method:"POST",  
+            data:{student_id:student_id},  
+            dataType:"json",  
+            success:function(data){  
+                 $('#lname').val(data.pnimi);  
+                 $('#fname').val(data.enimi);  
+                 $('#idcode').val(data.idkood);  
+                 $('#email').val(data.email);  
+                 $('#email_school').val(data.email_kool);  
+                 $('#field').val(data.oppekava);  
+                 $('#spec').val(data.suund);  
+                 $('#finance').val(data.finants);  
+                 $('#unpaid').val(data.tasuamata_arved);  
+                 $('#load').val(data.koormus);
+                 $('#sem').val(data.sem);  
+                 $('#break').val(data.puhkusel);  
+                 $('#abroad').val(data.valisoppe_sem);    
+                 $('#finish').val(data.etapp);  
+                 $('#eap').val(data.eap);
+                 $('#kkh_ap').val(data.kkh_ap);    
+                 $('#kkh_eap').val(data.kkh_eap);  
+                 $('#kkh_all').val(data.kkh_koik);  
+                 $('#id').val(data.id);
+
+                 $('#insert').val("Uuenda");  
+                 $('#add_data_Modal').modal('show');
+                 
+            }  
+       });  
     })
 
     $('#insert_form').on("submit", function(event){  
-        event.preventDefault();  
+        //event.preventDefault();  
         if($('#lname').val() == "") {  
              alert("Sisestage perekonnanimi");  
         } else {  
@@ -141,21 +112,23 @@ $(document).ready(function(){
                   method:"POST",  
                   data:$('#insert_form').serialize(),  
                   beforeSend:function(){  
-                       $('#insert').val("Inserting");  
+                    $('#insert').val("Inserting");  
                   },  
                   success:function(data){  
-                        $('#alert_message').html('<div class="alert alert-success">Andmed lisatud!</div>')
-                       $('#insert_form')[0].reset();  
-                       $('#add_data_Modal').modal('hide');  
-                       $('#studentInfo').html(data);  
-                  }  
-             });  
+                    //$('#alert_message').html('<div class="alert alert-success">Andmed lisatud!</div>')
+                    $('#insert_form')[0].reset();  
+                    $('#add_data_Modal').modal('hide');
+                    $('#studentInfo').html(data);  
+                        
+                }  
+            });  
         }  
    });  
 
 
 
 })
+
 
 
 
