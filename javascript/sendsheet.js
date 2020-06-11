@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var worksheet = workbook.Sheets[first_sheet]
 
             var range = XLSX.utils.decode_range(worksheet['!ref']);
-            range.s.r = 1; // <-- zero-indexed, so setting to 1 will skip row 0
+            range.s.r = 1   // Jätab 0 (esimese) rea vahele
             worksheet['!ref'] = XLSX.utils.encode_range(range);
 
             jsonText = XLSX.utils.sheet_to_json(worksheet)
