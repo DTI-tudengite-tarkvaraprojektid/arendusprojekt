@@ -24,10 +24,22 @@ $(document).ready(function(){
             "info": false,
             scrollY: 400,
             scrollX: 0,
+            columnDefs:[{
+                
+                className: 'select-checkbox',
+                targets: 0,
+                checkboxes: {
+                    selectRow: true
+                }
+            }],
+            select: {
+                style: 'multi',
+                selector: 'td:first-child'
+            },
             "language" : {
                 "search" : "Otsi: ",
             },
-            "order" : [],
+            "order" : [1, 'asc'],
             "ajax" : {
                 url : "php/sidebar.php",
                 type : "POST"
@@ -60,6 +72,12 @@ $(document).ready(function(){
             }
         })
     })
+    $(document).on("click", "#showcheckbox", function(){
+                console.log("kohal")
+        $('.checkbox').toggle()
+    })
+
+
 
 })
     

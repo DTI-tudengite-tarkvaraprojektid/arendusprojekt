@@ -11,4 +11,14 @@ $(document).ready(function(){
             }
         }
     })
+
+    $('#logout').click(function(){
+        $.ajax({
+            url: "php/logout.php",
+            method: "POST",
+            success: function(){
+                window.location.replace("login.php"); 
+            }
+        })
+    })
 })

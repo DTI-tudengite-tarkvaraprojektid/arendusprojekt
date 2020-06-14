@@ -13,6 +13,9 @@ $(document).ready(function(){
             "language" : {
                 "search" : "Otsi: "
             },
+            select: {
+                style: 'multi'
+            },
             "order" : [],
             "ajax" : {
                 url : "php/getdata.php",
@@ -20,6 +23,38 @@ $(document).ready(function(){
             }
         })
     }
+
+    $('#deletemany').on('click', function() { 
+        var array = []; 
+        $("input:checkbox[name=type]:checked").each(function() { 
+            array.push($(this).attr('id')); 
+        }); 
+        if(confirm("Kas olete kindel et soovite kustutada " + array.length + " rida?")){
+            array2 = Object.assign({}, array);
+            console.log(JSON.stringify(array2))
+            $.ajax({
+                url:'php/deletemany.php',
+                method: 'POST',
+                data: {array: JSON.stringify(array2)},
+                success:function(data){
+                    $('#alert_message').html('<div class="alert alert-success">'+data+'</div>')
+                    $('#studentInfo').DataTable().destroy()
+                    fetchData()
+                }
+            })
+            
+        }
+    }); 
+
+    function funCalled(obj) {
+        var el = document.getElementById("parentImg");
+      if (obj.checked) {
+      
+       el.className = "checked"; 
+      } else {
+          el.className = "notChecked";
+      }
+  }
 
     
     /*

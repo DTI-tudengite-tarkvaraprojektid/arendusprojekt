@@ -72,6 +72,7 @@
     while($row = mysqli_fetch_array($result)){
         $sub_array = array();
         //$sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="enimi">' . $row["enimi"] . '</div>';
+        $sub_array[] = '<input type="checkbox" id="'.$row["id"].'" name="type" class="checkbox">';
         $sub_array[] = '<span class="view_data" id="'.$row["id"].'"><div class="update" data-id="'.$row["id"].'" data-column="pnimi">' . $row["pnimi"] . '</div></span>';
         $sub_array[] = '<span class="view_data" id="'.$row["id"].'"><div class="update" data-id="'.$row["id"].'" data-column="oppekava">' . $row["oppekava"] . '</div></span>';
         $sub_array[] = '<span class="view_data" id="'.$row["id"].'"><div class="update" data-id="'.$row["id"].'" data-column="kood">' . $row["opilaskood"] . '</div></span>';
