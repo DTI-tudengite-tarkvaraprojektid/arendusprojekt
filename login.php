@@ -1,4 +1,5 @@
-require("php/functions.php");
+<?php
+  require("php/functions.php");
   require("php/function_main.php");
   require("php/config.php");
 
