@@ -1,6 +1,19 @@
 $(document).ready(function(){
     fetchData()
+    fetchNotes()
     $("#cancel").hide()
+
+    function fetchNotes(){
+        var notesBox = $('#noteArea');
+        $.ajax({
+            url: "php/getnotes.php",
+            method: "POST",
+            success: function(data){
+                notesBox.val(data)
+                console.log(data)
+            }
+        })
+    }
 
     //datatable plugin parameetrid, täidab tabeli andmebaasi andmetega 
     function fetchData(){

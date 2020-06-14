@@ -3,12 +3,12 @@ $(document).ready(function(){
         url: "php/checksession.php",
         method:"post",
         success: function(data){
-            if(data == 'halb'){
-                window.location.replace("login.php");
+            if(data != 'hea'){
+                window.location.replace("login.php"); 
+                console.log(data)
             } else {
                 console.log(data)
             }
-            //console.log(data)
         }
     })
 })
