@@ -20,6 +20,7 @@ require 'getdata.php';
     <title>Avaleht</title>
 </head>
 <body>
+  <!-- navbar -->
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,8 +42,45 @@ require 'getdata.php';
           </nav>
     </div>
     <button id="showcheckbox">Näita</button>
-    <div>
 
+  <!-- Notes new -->
+
+  <div id="tabs-container">
+    <ul class="tabs-menu">
+      <li class="current btn btn-light"><a href="#tab-1">Isiklik</a></li>
+      <li><a class="btn btn-light" href="#tab-2">Tudengile</a></li>
+    </ul>
+    <div class="tab">
+      <!-- Personal notes -->
+      <div id="tab-1" class="tab-content">
+        <textarea
+          class="form-control rounded-0"
+          id="noteAreaPersonal"
+          rows="10"
+        ></textarea>
+        <button type="button" class="btn btn-dark" id="saveButtonPersonal">
+          Salvesta isiklik
+        </button>
+      </div>
+      <!-- Student notes -->
+      <div id="tab-2" class="tab-content">
+        <textarea
+          class="form-control rounded-0"
+          id="noteAreaStudent"
+          rows="10"
+        ></textarea>
+        <button type="button" class="btn btn-dark" id="saveButtonStudent">
+          Salvesta Tudeng
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    <!-- Notes-old -->
+    <div>
         <div class="row" id="notesDiv">
             <div class="left">
                 <div class="form-group">

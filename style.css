@@ -122,3 +122,16 @@ td {
     padding-left: 10px;
     padding-top: 20px;
 }
+
+
+.current a {
+    color: red;
+}
+
+.tab-content {
+    display: none;
+}
+
+#tab-1 {
+    display: block;
+}

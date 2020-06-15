@@ -4,7 +4,7 @@ $(document).ready(function(){
     $("#cancel").hide()
 
     function fetchNotes(){
-        var notesBox = $('#noteArea');
+        var notesBox = $('#noteAreaPersonal');
         $.ajax({
             url: "php/getnotes.php",
             method: "POST",
@@ -60,13 +60,32 @@ $(document).ready(function(){
         })  
     })
 
-    $(document).on("click", "#saveButton", function(){
-        var noteData = $("#noteArea").val()
-        console.log(noteData)
+    // Save personal notes to database
+    $(document).on("click", "#saveButtonPersonal", function(){
+        var noteDataPersonal = $("#noteAreaPersonal").val()
+        console.log(noteDataPersonal)
         $.ajax({
             url: 'php/savenotes.php',
             method: 'post',
-            data: {noteData: noteData},
+            data: {noteDataPersonal: noteDataPersonal},
+            success: function(){
+                window.alert("Märge salvestatud")
+            }
+        })
+    })
+    $(document).on("click", "#showcheckbox", function(){
+                console.log("kohal")
+        $('.checkbox').toggle()
+    })
+
+    // save student notes to database
+    $(document).on("click", "#saveButtonStudent", function(){
+        var noteDataStudent = $("#noteAreaStudent").val()
+        console.log(noteDataStudent)
+        $.ajax({
+            url: 'php/savenotes.php',
+            method: 'post',
+            data: {noteDataStudent: noteDataStudent},
             success: function(){
                 window.alert("Märge salvestatud")
             }
@@ -80,4 +99,21 @@ $(document).ready(function(){
 
 
 })
+
+// Show different tabs
+
+$(document).ready(function () {
+    $('.tabs-menu a').click(function (event) {
+      event.preventDefault();
+
+      // Toggle active class on tab buttons
+      $(this).parent().addClass('current');
+      $(this).parent().siblings().removeClass('current');
+
+      // display only active tab content
+      var activeTab = $(this).attr('href');
+      $('.tab-content').not(activeTab).css('display', 'none');
+      $(activeTab).fadeIn();
+    });
+  });
     
