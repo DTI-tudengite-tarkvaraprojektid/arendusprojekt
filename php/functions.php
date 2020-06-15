@@ -3,7 +3,7 @@
 function login ($username, $password){
     $notice = "";
     $mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-    $stmt = $mysqli->prepare("SELECT password FROM Users WHERE username=?");  
+    $stmt = $mysqli->prepare("SELECT parool FROM Kasutaja WHERE kasutajanimi=?");  
     echo $mysqli->error;
     $stmt->bind_param("s", $username);
     $stmt->bind_result($passwordFromDb);
@@ -12,7 +12,7 @@ function login ($username, $password){
 		//kasutaja leitud
 		if(password_verify($password, $passwordFromDb)){
 		  $stmt->close();
-		  $stmt = $mysqli->prepare("SELECT id, username FROM Users WHERE username=?");
+		  $stmt = $mysqli->prepare("SELECT id, kasutajanimi FROM Kasutaja WHERE kasutajanimi=?");
 		  echo $mysqli->error;
 		  $stmt->bind_param("s", $username);
 		  $stmt->bind_result($idFromDb, $usernameFromDb);
@@ -44,7 +44,7 @@ function changePassword($oldPassword, $password){
     //vana parooli kontroll
     $notice = "";
     $conn = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-    $stmt = $conn->prepare("SELECT password FROM Users WHERE id=?");
+    $stmt = $conn->prepare("SELECT parool FROM Kasutaja WHERE id=?");
     echo $conn->error;
     $stmt->bind_param("i", $_SESSION["userId"]);
     $stmt->bind_result($passwordFromDb);
@@ -52,7 +52,7 @@ function changePassword($oldPassword, $password){
       if($stmt->fetch()){
         if(password_verify($oldPassword, $passwordFromDb)){
             $stmt->close();
-            $stmt = $conn->prepare("UPDATE Users SET password = ? WHERE id = ?");
+            $stmt = $conn->prepare("UPDATE Kasutaja SET parool = ? WHERE id = ?");
             $options = ["cost" => 12, "salt" => substr(sha1(rand()), 0, 22)];
             $pwdhash = password_hash($password,PASSWORD_BCRYPT, $options );
             $stmt->bind_param("si", $pwdhash, $_SESSION["userId"]);
