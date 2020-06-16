@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 function login ($username, $password){
     $notice = "";
@@ -12,6 +11,7 @@ function login ($username, $password){
 	  if($stmt->fetch()){
 		//kasutaja leitud
 		if(password_verify($password, $passwordFromDb)){
+      
 		  $stmt->close();
 		  $stmt = $mysqli->prepare("SELECT id, kasutajanimi FROM Kasutaja WHERE kasutajanimi=?");
 		  echo $mysqli->error;
@@ -19,14 +19,15 @@ function login ($username, $password){
 		  $stmt->bind_result($idFromDb, $usernameFromDb);
 		  $stmt->execute();
 		  $stmt->fetch();
-		  
-
+		  session_start();
+      $_SESSION['loggedin'] = true;
 		  $_SESSION["userId"] = $idFromDb;
 		  $_SESSION["username"] = $usernameFromDb;
 	
 		  
 		  $stmt->close();
-	      $mysqli->close();
+      $mysqli->close();
+      //echo $_SESSION['loggedin'] . ' ' . $_SESSION["userId"];
 		  header("Location: home.html");
 		  exit();
 		  		  
