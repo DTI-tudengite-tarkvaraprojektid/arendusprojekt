@@ -1,12 +1,27 @@
 $(document).ready(function(){
     fetchData()
     fetchNotes()
+    fetchStudentNotes()
     $("#cancel").hide()
 
     function fetchNotes(){
         var notesBox = $('#noteAreaPersonal');
         $.ajax({
             url: "php/getnotes.php",
+            method: "POST",
+            success: function(data){
+                notesBox.val(data)
+                console.log(data)
+            }
+        })
+    }
+
+    // Fetch  Student notes //
+
+    function fetchStudentNotes(){
+        var notesBox = $('#noteArea');
+        $.ajax({
+            url: "php/getstudentnotes.php",
             method: "POST",
             success: function(data){
                 notesBox.val(data)

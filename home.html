@@ -34,6 +34,10 @@ require 'getdata.php';
                 <li class="nav-item">
                     <a class="nav-link" href="editdata.html">Tudengid</a>
                   </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="insertsheet.html" id="insertsheet">Lisa tudengeid</a>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#" id="logout">Logi välja</a>
                   </li>
@@ -41,15 +45,16 @@ require 'getdata.php';
             </div>
           </nav>
     </div>
-    <button id="showcheckbox">Näita</button>
+    
 
   <!-- Notes new -->
 
   <div id="tabs-container">
     <ul class="tabs-menu">
-      <li class="current btn btn-light"><a href="#tab-1">Isiklik</a></li>
-      <li><a class="btn btn-light" href="#tab-2">Tudengile</a></li>
+      <li><a class="current btn" href="#tab-1">Isiklik</a></li>
+      <li><a class="btn" href="#tab-2">Tudengile</a></li>
     </ul>
+
     <div class="tab">
       <!-- Personal notes -->
       <div id="tab-1" class="tab-content">
@@ -58,7 +63,7 @@ require 'getdata.php';
           id="noteAreaPersonal"
           rows="10"
         ></textarea>
-        <button type="button" class="btn btn-dark" id="saveButtonPersonal">
+        <button type="button" class="btn btn-dark float-right" id="saveButtonPersonal">
           Salvesta isiklik
         </button>
       </div>
@@ -66,75 +71,44 @@ require 'getdata.php';
       <div id="tab-2" class="tab-content">
         <textarea
           class="form-control rounded-0"
-          id="note"
+          id="noteArea"
           rows="10"
         ></textarea>
-        <button type="button" class="btn btn-dark" id="savestudentnotes">
+        <button type="button" class="btn btn-dark float-right" id="savestudentnotes">
           Salvesta Tudeng
         </button>
       </div>
     </div>
   </div>
 
+  <button id="showcheckbox" class="backbtn">Näita</button>
+<!-- Sidebar -->
+  <div class="sidebar bg-light">
+    <table id="students_right"  class="table-sm"width= "100%" >
+      <thead>
+          <tr>
+              <td class="checkbox"></td>
+              <td>Perekonnanimi</td>
+              <td>Õppekava</td>
+              <td>Üliõpilaskood</td>
+          </tr>
+      </thead>
+  </table>
+</div>
 
-
-
-    <!-- Notes-old -->
-    <div>
-        <div class="row" id="notesDiv">
-            <div class="left">
-                <div class="form-group">
-                  <label for="exampleFormControlTextarea2" id="label1">Tee märkmeid</label>
-                  <textarea class="form-control rounded-0" id="noteArea" rows="20"></textarea>
-                  <button type="button" class="btn btn-dark" id="saveButton">Salvesta</button>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    <div class="sidebar bg-light">
-      <table id="students_right"  class="table table-sm"width= "100%" >
-        <thead>
-            <tr>
-                <td class="checkbox"></td>
-                <td>Perekonnanimi</td>
-                <td>Õppekava</td>
-                <td>Üliõpilaskood</td>
-            </tr>
-        </thead>
-    </table>
+<div id="dataModal" class="modal" role="dialog" >
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+              <div class="modal-body" id="student_info"></div>
+          <div class="modal-footer">  
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+          </div>  
+      </div>
   </div>
-
-  <div id="dataModal" class="modal" role="dialog" >
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-                <div class="modal-body" id="student_info"></div>
-            <div class="modal-footer">  
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
-            </div>  
-        </div>
-    </div>
 </div>
-    <!--
-    <div>
-    <div>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <h3>Roosi</h3>
-          <p>Üliõpilaskood</p>
-          <button>Profiil</button>
-          <input type="checkbox" name="" id="">
-        </li>
-        <li class="list-group-item">Second item</li>
-        <li class="list-group-item">Third item</li>
-      </ul>
-    </div>
-</div>
--->
-
 
 </body>
 </html>

@@ -56,34 +56,45 @@ td {
     margin-top: 20px;
 }
 
-#deletemany {
-    margin-right: 12rem;
-    margin-top: 1.5rem;
-}
+
 
 #delete{
     float: right;
 }
-#add{
-    position: absolute;
-    right: 15px;
-    margin-right: 60px;
+
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.editButton {
-    position: absolute;
-    right: 15px;
-    padding: 7px;
+.container button {
+    padding: 7px 7px;
+    margin: 7px 7px;
+    margin-top: px;
     font-family: 'Times New Roman', Times, serif;
     font-style: normal;
     border-radius: 3px;
     transition: 0.5s;   
     border: 1px;
+    background-color: #ffffff;
+    width: 128px;
 }
 
-.editButton:hover {
-    background-color: rgb(241, 240, 240);
+.container a {
+    color: #000;
+    font-style: normal;
 }
+
+/*
+.container button:hover {
+    background-color: rgb(216, 216, 216);
+}
+*/
+
 #cancel{
     position: absolute;
     right: 180px;
@@ -91,6 +102,7 @@ td {
 
 #studentInfo_wrapper{
     margin: 5%;
+    margin-top: 5px;
 }
 .no-click {
     pointer-events: none;
