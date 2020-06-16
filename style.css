@@ -65,6 +65,20 @@ td {
     right: 15px;
     margin-right: 60px;
 }
+
+.editButton {
+    position: absolute;
+    right: 15px;
+    padding: 7px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    border-radius: 3px;
+    transition: 0.5s;   
+}
+
+.editButton:hover {
+    background-color: rgb(236, 236, 236);
+}
 #cancel{
     position: absolute;
     right: 180px;

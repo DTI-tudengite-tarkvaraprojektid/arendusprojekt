@@ -21,15 +21,17 @@
     <title>Edit info</title>
 </head>
 <body>
-    <div>
+
+     <!-- navbar -->
+     <div class="mainNav">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto mx-auto design text-uppercase">
-                <li class="nav-item">
-                  <a class="nav-link" href="home.html">Avaleht</a>
+            <div class="collapse navbar-collapse justify-content-center nav-items" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto mx-auto design text-uppercase nav-items">
+                <li class="nav-item active">
+                    <a class="nav-link" href="home.html">Avaleht</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" >Tudengid <span class="sr-only">(current)</span></a>
@@ -42,13 +44,14 @@
           </nav>
     </div>
 
-    <button id="deletemany">Kustuta mitu</button>
+
+    <button id="deletemany" class="editButton">Kustuta mitu</button>
 
     <div class="table-responsive">
         <br />
         <div id="alert_message"></div>
         <button type="button" name="cancel" id="cancel" class="btn btn-info">Tühista</button>
-        <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Lisa uus õpilane</button> 
+        <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="editButton">Lisa uus õpilane</button> 
 
     </div>	
     <table id="studentInfo"  class="table table-bordered">
