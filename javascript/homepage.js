@@ -79,21 +79,24 @@ $(document).ready(function(){
     })
 
     // save student notes to database
-    $(document).on("click", "#saveButtonStudent", function(){
-        var noteDataStudent = $("#noteAreaStudent").val()
-        console.log(noteDataStudent)
+    $('#savestudentnotes').on('click', function() { 
+        var array = []
+        var studentNote = $("#noteArea").val() 
+        $("input:checkbox[name=type]:checked").each(function(){ 
+            array.push($(this).attr('id')) 
+        }) 
+        array2 = Object.assign({}, array);
+        console.log(JSON.stringify(array2))
         $.ajax({
-            url: 'php/savenotes.php',
-            method: 'post',
-            data: {noteDataStudent: noteDataStudent},
-            success: function(){
-                window.alert("Märge salvestatud")
+            url:'php/studentnotes.php',
+            method: 'POST',
+            data: {array: JSON.stringify(array2), note: studentNote},
+            success:function(data){
+                $('#alert_message').html('<div class="alert alert-success">'+data+'</div>')
             }
         })
-    })
-    $(document).on("click", "#showcheckbox", function(){
-                console.log("kohal")
-        $('.checkbox').toggle()
+            
+        
     })
 
 
