@@ -56,6 +56,10 @@ td {
     margin-top: 20px;
 }
 
+#deletemany {
+    margin-right: 12rem;
+    margin-top: 1.5rem;
+}
 
 #delete{
     float: right;
@@ -74,6 +78,7 @@ td {
     font-style: normal;
     border-radius: 3px;
     transition: 0.5s;   
+    border: 1px;
 }
 
 .editButton:hover {
@@ -134,7 +139,7 @@ td {
 
 /* home page styling */
 
-.nav-items {
+.nav-item {
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
     font-size: 20px;
