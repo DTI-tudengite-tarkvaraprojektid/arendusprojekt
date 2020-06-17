@@ -8,10 +8,14 @@ Projekt on loodud Tallinna Ülikooli Digitehnoloogiate instituudi tarkvaraarendu
 
 ## Kasutatud tehnoloogiad
 * HTML
-* PHP
+* PHP 5.6.40
 * CSS
 * JavaScript
 * MySQL
+* jQuery 3.5.1
+* jQuery Tabledit
+* SheetJS
+* Bootstrap 4.5.0 
 
 ## Projekti meeskond
 * Filip Taik
