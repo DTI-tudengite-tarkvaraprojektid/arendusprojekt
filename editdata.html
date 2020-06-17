@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -12,43 +13,55 @@
     <script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
     <script lang="javascript" src="javascript/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.1/cpexcel.js"
-     integrity="sha256-W3rJZOZXlV1xks8sdGPOTRzqRS3Z09PwehXSQXEq0gU=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+        integrity="sha256-W3rJZOZXlV1xks8sdGPOTRzqRS3Z09PwehXSQXEq0gU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
+    </script>
+    <script src="https://kit.fontawesome.com/1d0880533d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Edit info</title>
 </head>
-<body>
 
-<!-- navbar -->
-<div class="mainNav">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center nav-items" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto mx-auto design text-uppercase nav-items">
-            <li class="nav-item">
-              <a class="nav-link" href="home.html">Avaleht</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="editdata.html">Tudengid <span class="sr-only">(current)</span></a>
-              </li>
-              
-              <li class="nav-item">
-                <a class="nav-link" href="insertsheet.html" id="insertsheet">Lisa tudengeid</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="logout">Logi välja</a>
-              </li>
-          </ul>
-        </div>
-      </nav>
-</div>
-    <div class="container btn">
-        <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal">Lisa uus õpilane</button>
+<body>
+    <!-- Navbar -->
+    <div>
+        <nav class="navbar navbar-expand-md navbar-light rounded">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav mx-auto text-uppercase">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Avaleht
+                            <i class="fa fa-home"></i></a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="editdata.html">Tudengid <span class="sr-only">(current)</span>
+                            <i class="fa fa-user-graduate"></i></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="insertsheet.html" id="insertsheet">Lisa tudengeid
+                            <i class="fa fa-user-plus"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logout">Logi välja
+                            <i class="fa fa-sign-out"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal">Lisa uus
+            õpilane</button>
         <button><a href="insertsheet.html">Lisa tabelist</a></button>
         <button id="deletemany">Kustuta mitu</button>
     </div>
@@ -59,9 +72,10 @@
         <br />
         <div id="alert_message"></div>
         <button type="button" name="cancel" id="cancel" class="btn btn-info">Tühista</button>
-        
-    </div>	
-    <table id="studentInfo"  class="table table-bordered">
+
+    </div>
+
+    <table id="studentInfo" class="table table-bordered">
         <thead>
             <tr>
                 <td></td>
@@ -75,100 +89,105 @@
         </thead>
     </table>
 
-    <div id="dataModal" class="modal" role="dialog" >
+    <div id="dataModal" class="modal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                                        <button type="button" class="btn btn-light">Muuda</button>
+                    <button type="button" class="btn btn-light">Muuda</button>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                    <div class="modal-body" id="student_info"></div>
-                <div class="modal-footer">  
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Sulge</button>  
-                </div>  
+                <div class="modal-body" id="student_info"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Sulge</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="add_data_Modal" class="modal fade">  
-        <div class="modal-dialog">  
-             <div class="modal-content">  
-                  <div class="modal-header">  
-                       <button type="button" class="close" data-dismiss="modal">&times;</button>   
-                  </div>  
-                  <div class="modal-body">  
-                       <form method="post" id="insert_form">  
-                            <label>Perekonnanimi</label>  
-                            <input type="text" name="lname" id="lname" class="form-control" />  
-                            <br/>  
-                            <label>Eesnimi</label>  
-                            <input type="text" name="fname" id="fname" class="form-control" />   
-                            <br/>  
-                            <label>Isikukood</label>  
-                            <input type="text" name="idcode" id="idcode" class="form-control" />
-                            <br/>  
-                            <label>Email</label>  
-                            <input type="text" name="email" id="email" class="form-control" />  
-                            <br/>  
-                            <label>TLU email</label>  
-                            <input type="text" name="email_school" id="email_school" class="form-control" />  
-                            <br/>
-                            <label>Üliõpilaskood</label>  
-                            <input type="text" name="student_id" id="student_id" class="form-control" />  
-                            <br/>
-                            <label>Õppekava</label>  
-                            <input type="text" name="field" id="field" class="form-control" />  
-                            <br/>
-                            <label>Spetsialiseerumine</label>  
-                            <input type="text" name="spec" id="spec" class="form-control" />  
-                            <br/>
-                            <label>Finantseerimisallikas</label>  
-                            <input type="text" name="finance" id="finance" class="form-control" />  
-                            <br/>
-                            <label>Tasumata arveid summas: </label>  
-                            <input type="text" name="unpaid" id="unpaid" class="form-control" />  
-                            <br/>
-                            <label>Õppekoormus</label>  
-                            <input type="text" name="load" id="load" class="form-control" />  
-                            <br/>
-                            <label>SEM</label>  
-                            <input type="text" name="sem" id="sem" class="form-control" />  
-                            <br/>
-                            <label>Akadeemilisel puhkusel</label>  
-                            <input type="text" name="break" id="break" class="form-control" />  
-                            <br/>
-                            <label>Välisõppe sem. arv</label>  
-                            <input type="text" name="abroad" id="abroad" class="form-control" />  
-                            <br/>
-                            <label>Lõpetamise etapis</label>  
-                            <input type="text" name="finish" id="finish" class="form-control" />  
-                            <br/>
-                            <label>EAP</label>  
-                            <input type="text" name="eap" id="eap" class="form-control" />  
-                            <br/>
-                            <label>KKH AP</label>  
-                            <input type="text" name="kkh_ap" id="kkh_ap" class="form-control" />  
-                            <br/>
-                            <label>KKH EAP</label>  
-                            <input type="text" name="kkh_eap" id="kkh_eap" class="form-control" />  
-                            <br/>
-                            <label>KKH Kõik tulemused</label>  
-                            <input type="text" name="kkh_all" id="kkh_all" class="form-control" />  
-                            <br/>
-                            <input type="hidden" name="id" id="id" />  
-                            <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />  
-                       </form>  
-                  </div>  
-                  <div class="modal-footer">  
-                       <button type="button" class="btn btn-default" data-dismiss="modal">Sulge</button>  
-                  </div>  
-             </div>  
-        </div>  
-   </div>  
+    <div id="add_data_Modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="insert_form">
+                        <label>Perekonnanimi</label>
+                        <input type="text" name="lname" id="lname" class="form-control" />
+                        <br />
+                        <label>Eesnimi</label>
+                        <input type="text" name="fname" id="fname" class="form-control" />
+                        <br />
+                        <label>Isikukood</label>
+                        <input type="text" name="idcode" id="idcode" class="form-control" />
+                        <br />
+                        <label>Email</label>
+                        <input type="text" name="email" id="email" class="form-control" />
+                        <br />
+                        <label>TLU email</label>
+                        <input type="text" name="email_school" id="email_school" class="form-control" />
+                        <br />
+                        <label>Üliõpilaskood</label>
+                        <input type="text" name="student_id" id="student_id" class="form-control" />
+                        <br />
+                        <label>Õppekava</label>
+                        <input type="text" name="field" id="field" class="form-control" />
+                        <br />
+                        <label>Spetsialiseerumine</label>
+                        <input type="text" name="spec" id="spec" class="form-control" />
+                        <br />
+                        <label>Finantseerimisallikas</label>
+                        <input type="text" name="finance" id="finance" class="form-control" />
+                        <br />
+                        <label>Tasumata arveid summas: </label>
+                        <input type="text" name="unpaid" id="unpaid" class="form-control" />
+                        <br />
+                        <label>Õppekoormus</label>
+                        <input type="text" name="load" id="load" class="form-control" />
+                        <br />
+                        <label>SEM</label>
+                        <input type="text" name="sem" id="sem" class="form-control" />
+                        <br />
+                        <label>Akadeemilisel puhkusel</label>
+                        <input type="text" name="break" id="break" class="form-control" />
+                        <br />
+                        <label>Välisõppe sem. arv</label>
+                        <input type="text" name="abroad" id="abroad" class="form-control" />
+                        <br />
+                        <label>Lõpetamise etapis</label>
+                        <input type="text" name="finish" id="finish" class="form-control" />
+                        <br />
+                        <label>EAP</label>
+                        <input type="text" name="eap" id="eap" class="form-control" />
+                        <br />
+                        <label>KKH AP</label>
+                        <input type="text" name="kkh_ap" id="kkh_ap" class="form-control" />
+                        <br />
+                        <label>KKH EAP</label>
+                        <input type="text" name="kkh_eap" id="kkh_eap" class="form-control" />
+                        <br />
+                        <label>KKH Kõik tulemused</label>
+                        <input type="text" name="kkh_all" id="kkh_all" class="form-control" />
+                        <br />
+                        <input type="hidden" name="id" id="id" />
+                        <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Sulge</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>
