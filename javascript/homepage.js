@@ -91,6 +91,8 @@ $(document).ready(function () {
       },
     });
   });
+
+  
   $(document).on('click', '#showcheckbox', function () {
     console.log('kohal');
     $('.checkbox').toggle();
