@@ -1,3 +1,146 @@
+<<<<<<< HEAD
+=======
+/*test*/
+
+* {
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    /*font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif; */
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+    background-color: #dce2ee;
+ }
+
+
+
+/* home page styling */
+
+.nav-item {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 20px;
+    font-display: uppercase;
+    display: inline;
+}
+
+.left {
+    float: left;
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+
+.current {
+    background: rgb(158, 158, 158)!important;
+    z-index: 2;
+}
+
+
+.tab-content {
+    display: none;
+    margin-left:  10px;
+}
+
+#tab-1 {
+    display: block;
+    width: 50%;
+}
+
+#tab-2 {
+    display: block;
+    width: 50%;
+}
+
+.mainNav a {
+    font-size: 1.5rem;
+}
+
+.tabs-menu {
+    display: inline-flex;
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    padding: 5px 5px;
+    padding-left: 5px;
+}
+
+.savebtn {
+    width: 135px;
+    background: rgb(158, 158, 158);
+    
+}
+
+.tabs-menu button {
+    padding-left: 10px;
+    margin-left: 10px;
+    width: 135px;
+    background: rgb(158, 158, 158);
+    width: 700px;
+}
+
+
+
+
+
+/* login edit*/
+
+.login {
+    width: 400px;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin: 100px auto;
+}
+.login h1 {
+    text-align: center;
+    color: #5b6574;
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid #dee0e4;
+}
+.login form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+}
+.login form label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #6bcaba;
+    color: #ffffff;
+}
+.login form input[type="password"], .login form input[type="text"] {
+    width: 310px;
+    height: 50px;
+    border: 1px solid #dee0e4;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+.login form input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+   margin-top: 20px;
+    background-color: #6bcaba;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    transition: background-color 0.2s;
+}
+.login form input[type="submit"]:hover {
+    background-color: #dce2ee;
+    transition: background-color 0.2s;
+}
+
+>>>>>>> 2122b7802798c403d7b3d0be523174f7f0c17fcf
 html, body {
     max-width: 100%;
     overflow-x: hidden;
