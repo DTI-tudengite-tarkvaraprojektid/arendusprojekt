@@ -8,48 +8,63 @@
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="javascript/jquery.tabledit.js"></script>
     <script src="javascript/editsheet.js"></script>
+    <!--  <script src="javascript/checksession.js"></script>-->
+    <script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
     <script lang="javascript" src="javascript/xlsx.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.1/cpexcel.js" integrity="sha256-W3rJZOZXlV1xks8sdGPOTRzqRS3Z09PwehXSQXEq0gU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.1/cpexcel.js"
+     integrity="sha256-W3rJZOZXlV1xks8sdGPOTRzqRS3Z09PwehXSQXEq0gU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="style.css">
-
     <title>Edit info</title>
 </head>
 <body>
-    <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto mx-auto design text-uppercase">
-                <li class="nav-item active">
-                  <a class="nav-link" href="home.html">Avaleht</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Tudengid <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Logi välja</a>
-                  </li>
-              </ul>
-            </div>
-          </nav>
+
+<!-- navbar -->
+<div class="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center nav-items" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto mx-auto design text-uppercase nav-items">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Avaleht</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="editdata.html">Tudengid <span class="sr-only">(current)</span></a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="insertsheet.html" id="insertsheet">Lisa tudengeid</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="logout">Logi välja</a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+</div>
+    <div class="container btn">
+        <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal">Lisa uus õpilane</button>
+        <button><a href="insertsheet.html">Lisa tabelist</a></button>
+        <button id="deletemany">Kustuta mitu</button>
     </div>
+
+
 
     <div class="table-responsive">
         <br />
         <div id="alert_message"></div>
         <button type="button" name="cancel" id="cancel" class="btn btn-info">Tühista</button>
-        <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Lisa uus õpilane</button> 
-
+        
     </div>	
     <table id="studentInfo"  class="table table-bordered">
         <thead>
             <tr>
+                <td></td>
                 <td>Eesnimi</td>
                 <td>Perekonnanimi</td>
                 <td>Õppekava</td>

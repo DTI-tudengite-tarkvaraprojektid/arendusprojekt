@@ -1,63 +1,271 @@
-#inputDiv{
+* {
+    /* box-sizing: border-box; */
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background-color: #dce2ee;
+  }
+  
+  .nav-item {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 1rem;
+    font-display: uppercase;
+    display: inline;
+  }
+  
+  .left {
+    float: left;
+    padding-left: 10px;
+    padding-top: 20px;
+  }
+  
+  .current {
+    background: rgb(158, 158, 158) !important;
+    z-index: 2;
+  }
+  
+  .tab-content {
+    display: none;
+    margin-left: 10px;
+  }
+  
+  #tab-1 {
+    display: block;
+    width: 50%;
+  }
+  
+  #tab-2 {
+    display: block;
+    width: 50%;
+  }
+  
+  /* .mainNav a {
+    font-size: 1.5rem;
+  } */
+  
+  .tabs-menu {
+    display: inline-flex;
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    padding: 5px 5px;
+    padding-left: 5px;
+  }
+  
+  .savebtn {
+    width: 135px;
+    background: rgb(158, 158, 158);
+  }
+  
+  .tabs-menu button {
+    padding-left: 10px;
+    margin-left: 10px;
+    width: 135px;
+    background: rgb(158, 158, 158);
+    width: 700px;
+  }
+  
+  /* login edit*/
+  
+  .login {
+    width: 400px;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin: 100px auto;
+  }
+  .login h1 {
+    text-align: center;
+    color: #5b6574;
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid #dee0e4;
+  }
+  .login form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+  }
+  .login form label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #6bcaba;
+    color: #ffffff;
+  }
+  .login form input[type='password'],
+  .login form input[type='text'] {
+    width: 310px;
+    height: 50px;
+    border: 1px solid #dee0e4;
+    margin-bottom: 20px;
+    padding: 0 15px;
+  }
+  .login form input[type='submit'] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #6bcaba;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    transition: background-color 0.2s;
+  }
+  .login form input[type='submit']:hover {
+    background-color: #dce2ee;
+    transition: background-color 0.2s;
+  }
+  
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  #inputDiv {
     padding-top: 5%;
     padding-left: 15%;
     padding-right: 15%;
     display: flex;
     justify-content: center;
-}
-
-#inputFile{
+  }
+  
+  #inputFile {
     margin-left: 140px;
-}
-
-#output{
+  }
+  
+  #output {
     display: flex;
     justify-content: center;
     text-align: center;
-}
-
-table {
+  }
+  
+  table {
     border-spacing: 200px 0;
-}
-
-/*
-tr:first-of-type {
-    font-size: larger;
-    font-weight: bold;
-}
-*/
-
-td {
+  }
+  
+  td {
     padding: 15px 0;
     padding-left: 50px;
-}
-
-
-#editPage{
-    
+  }
+  
+  #editPage {
     position: absolute;
     right: 230px;
     margin-top: 20px;
-}
-
-
-#delete{
+  }
+  
+  #delete {
     float: right;
-}
-#add{
-    position: absolute;
-    right: 15px;
-    margin-right: 60px;
-}
-#cancel{
+  }
+  
+  #cancel {
     position: absolute;
     right: 180px;
-}
-
-#studentInfo_wrapper{
+  }
+  
+  #studentInfo_wrapper {
     margin: 5%;
-}
-.no-click {
+    margin-top: 5px;
+  }
+  .no-click {
     pointer-events: none;
-}
-    
+  }
+  
+  .sidebar {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 14px;
+    font-size: large;
+    font-display: uppercase;
+    /*float: right;*/
+    height: 100%;
+    /*width: 400px; 
+      position: fixed; */
+    z-index: 1;
+    top: 20px;
+    right: 0;
+    overflow-x: hidden;
+    margin-top: 35px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  #label1 {
+    padding-left: 20%;
+  }
+  
+  #saveButton {
+    margin-left: 20%;
+  }
+  
+  #notesDiv {
+    width: 300px;
+    margin: 0 auto;
+    float: left;
+  }
+  
+  .backbtn {
+    padding: 7px 7px;
+    margin: 7px 7px;
+    margin-top: px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    border-radius: 3px;
+    transition: 0.5s;
+    border: 1px;
+    background-color: #ffffff;
+  }
+  
+  .backbtn:hover {
+    background-color: rgb(216, 216, 216);
+  }
+  
+  .tabs-menu li {
+    background-color: rgb(228, 228, 228);
+    margin: 0px 5px;
+    border-radius: 3px;
+    transition: 0.5s;
+  }
+  
+  .tabs-menu li:hover {
+    background-color: rgb(211, 211, 211);
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container button {
+    padding: 7px 7px;
+    margin: 7px 7px;
+    margin-top: px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    border-radius: 3px;
+    transition: 0.5s;
+    border: 1px;
+    /* background-color: #ffffff; */
+    width: 128px;
+  }
+  
+  .container a {
+    color: #000;
+    font-style: normal;
+  }
+  
+  .mainNav a {
+    font-size: 1.5rem;
+  }

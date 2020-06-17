@@ -71,15 +71,13 @@
 
     while($row = mysqli_fetch_array($result)){
         $sub_array = array();
-        $sub_array[] = '<input type="checkbox" id="'.$row["id"].'" name="type">';
-        $sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="enimi">' . $row["enimi"] . '</div>';
-        $sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="pnimi">' . $row["pnimi"] . '</div>';
-        $sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="oppekava">' . $row["oppekava"] . '</div>';
-        $sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="opilaskood">' . $row["opilaskood"] . '</div>';
-        $sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="email_kool">' . $row["email_kool"] . '</div>';
-        $sub_array[] = '<button type="button" class="btn btn-primary view_data"  id="'.$row["id"].'">Profiil</button>
-                        <button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$row["id"].'">Kustuta</button>
-                        <button type="button" class="btn btn-light edit_data" id="'.$row["id"].'">Muuda</button>';
+        //$sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="enimi">' . $row["enimi"] . '</div>';
+        $sub_array[] = '<input type="checkbox" id="'.$row["id"].'" name="type" class="checkbox">';
+        $sub_array[] = '<span class="view_data" id="'.$row["id"].'"><div class="update" data-id="'.$row["id"].'" data-column="pnimi">' . $row["pnimi"] . '</div></span>';
+        $sub_array[] = '<span class="view_data" id="'.$row["id"].'"><div class="update" data-id="'.$row["id"].'" data-column="oppekava">' . $row["oppekava"] . '</div></span>';
+        $sub_array[] = '<span class="view_data" id="'.$row["id"].'"><div class="update" data-id="'.$row["id"].'" data-column="kood">' . $row["opilaskood"] . '</div></span>';
+        //$sub_array[] = '<div class="update" data-id="'.$row["id"].'" data-column="email_kool">' . $row["email_kool"] . '</div>';
+        //$sub_array[] = '<button type="button" class="btn btn-primary view_data"  id="'.$row["id"].'">Profiil</button> <button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$row["id"].'">Kustuta</button> <button type="button" class="btn btn-light" id="id="'.$row["id"].'"">Muuda</button>';
         //$sub_array[] = ';
         $array[] = $sub_array; 
     }

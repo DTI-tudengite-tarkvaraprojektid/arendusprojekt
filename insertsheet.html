@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>
     <script src="javascript/sendsheet.js"></script>
+    <script src="javascript/checksession.js"></script>
     <script lang="javascript" src="javascript/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.1/cpexcel.js" integrity="sha256-W3rJZOZXlV1xks8sdGPOTRzqRS3Z09PwehXSQXEq0gU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
@@ -16,14 +17,40 @@
     <title>Input data</title>
 
 </head>
+
 <body>
+  <!-- navbar -->
+  <div class="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center nav-items" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto mx-auto design text-uppercase nav-items">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Avaleht</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="editdata.html">Tudengid</a>
+              </li>
+              
+              <li class="nav-item active">
+                <a class="nav-link" href="insertsheet.html" id="insertsheet">Lisa tudengeid <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="logout">Logi välja</a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+</div>
   <div id="alert_message"></div>
-  <button onclick="goToEdit();" id="goToEdit"></button>
+  <button onclick="goToEdit();" id="goToEdit" class="backbtn">Tagasi</button>
     <div class="input-group mb-3" id="inputDiv">
         <button id="clearButton" onclick="clearInput();">Clear</button>
           <div class="custom-file">
             <input type="file" class="custom-file-input" id="inputFile" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"> 
-            <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+            <label class="custom-file-label" for="inputGroupFile03">Lisa Exceli fail</label>
           </div>
         <button id="saveButton" onclick="sendJSON();">Save</button>
     </div>
