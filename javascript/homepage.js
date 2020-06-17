@@ -2,6 +2,7 @@ $(document).ready(function(){
     fetchData()
     fetchNotes()
     fetchStudentNotes()
+    
     $("#cancel").hide()
 
     function fetchNotes(){
@@ -69,6 +70,7 @@ $(document).ready(function(){
             method: 'post',
             data: {student_id: student_id},
             success: function(data){
+                $('#savenote').hide();
                 $('#student_info').html(data)
                 $('#dataModal').modal("show")
             }
@@ -112,6 +114,24 @@ $(document).ready(function(){
         })
             
         
+    })
+
+    $(document).on("click", ".changenote", function(){
+        $('#savenote').toggle();
+        var currentnote = $(this).closest('td').next()
+        var id = $(this).attr("id")
+        console.log(id)
+        $(currentnote).attr("contenteditable", "true")
+        $('#savenote').on('click', function(){
+            var notedata = currentnote.text()
+            console.log(notedata)
+            $.ajax({
+                url: "php/updatenote.php",
+                method: "POST",
+                data: {id: id, new_note: notedata}
+            })
+        })
+
     })
 
 

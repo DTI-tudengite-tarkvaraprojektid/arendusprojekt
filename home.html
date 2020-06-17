@@ -63,7 +63,7 @@ require 'getdata.php';
           id="noteAreaPersonal"
           rows="10"
         ></textarea>
-        <button type="button" class="btn btn-dark float-right savebtn" id="saveButtonPersonal">
+        <button type="button" class="btn btn-dark float-right" id="saveButtonPersonal">
           Salvesta isiklik
         </button>
       </div>
@@ -74,7 +74,7 @@ require 'getdata.php';
           id="noteArea"
           rows="10"
         ></textarea>
-        <button type="button" class="btn btn-dark float-right savebtn" id="savestudentnotes">
+        <button type="button" class="btn btn-dark float-right" id="savestudentnotes">
           Salvesta Tudeng
         </button>
       </div>
@@ -103,7 +103,8 @@ require 'getdata.php';
               <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
               <div class="modal-body" id="student_info"></div>
-          <div class="modal-footer">  
+          <div class="modal-footer">
+              <button id="savenote" type="button" class="btn btn-default">Salvesta</button>  
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
           </div>  
       </div>

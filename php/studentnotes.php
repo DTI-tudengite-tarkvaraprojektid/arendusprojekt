@@ -15,10 +15,10 @@
             }
             
         }
+        $stmt -> close();
     } else {
         echo 'sadsad';
     }
-    $stmt -> close();
-
+    
 
 ?>

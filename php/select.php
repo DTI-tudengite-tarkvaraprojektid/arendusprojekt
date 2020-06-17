@@ -10,9 +10,8 @@ require 'config.php';
         $stmt ->execute();
         $stmt ->store_result();
         $stmt ->bind_result($note);
-        while ($stmt->fetch()) {
-            echo "%s %s\n". $note;
-        }
+        $stmt->fetch(); 
+
         
         $result = mysqli_query($conn, $query);  
         $output .= '  
@@ -96,7 +95,7 @@ require 'config.php';
                     <td width="70%">'.$row["kkh_koik"].'</td>  
                 </tr>
                 <tr>
-                    <td width="30%"><label>Märkmed</label></td>
+                    <td width="30%"><label>Märkmed <button class="changenote" id="'.$_POST["student_id"].'">Muuda</button></label></td>
                     <td width="70%">'.$note.'</td>
                 </tr>
                 ';  
