@@ -1,64 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
     <script src="javascript/sendsheet.js"></script>
     <script src="javascript/checksession.js"></script>
     <script lang="javascript" src="javascript/xlsx.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.1/cpexcel.js" integrity="sha256-W3rJZOZXlV1xks8sdGPOTRzqRS3Z09PwehXSQXEq0gU=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.1/cpexcel.js"
+      integrity="sha256-W3rJZOZXlV1xks8sdGPOTRzqRS3Z09PwehXSQXEq0gU="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/1d0880533d.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Input data</title>
+  </head>
 
-</head>
-
-<body>
-  <!-- navbar -->
-  <div class="mainNav">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <body>
+    <!-- Navbar -->
+    <div>
+      <nav class="navbar navbar-expand-md navbar-light rounded">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center nav-items" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto mx-auto design text-uppercase nav-items">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav navbar-nav mx-auto text-uppercase">
             <li class="nav-item">
-              <a class="nav-link" href="home.html">Avaleht</a>
+              <a class="nav-link" href="home.html"
+                >Avaleht <i class="fa fa-home"></i
+              ></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="editdata.html"
+                >Tudengid <i class="fa fa-user-graduate"></i
+              ></a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="insertsheet.html" id="insertsheet"
+                >Lisa tudengeid <span class="sr-only">(current)</span>
+                <i class="fa fa-user-plus"></i
+              ></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="editdata.html">Tudengid</a>
-              </li>
-              
-              <li class="nav-item active">
-                <a class="nav-link" href="insertsheet.html" id="insertsheet">Lisa tudengeid <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="logout">Logi välja</a>
-              </li>
+              <a class="nav-link" href="#" id="logout"
+                >Logi välja <i class="fa fa-sign-out"></i
+              ></a>
+            </li>
           </ul>
         </div>
       </nav>
-</div>
-  <div id="alert_message"></div>
-  <button onclick="goToEdit();" id="goToEdit" class="backbtn">Tagasi</button>
-    <div class="input-group mb-3" id="inputDiv">
-        <button id="clearButton" onclick="clearInput();">Clear</button>
-          <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputFile" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"> 
-            <label class="custom-file-label" for="inputGroupFile03">Lisa Exceli fail</label>
-          </div>
-        <button id="saveButton" onclick="sendJSON();">Save</button>
     </div>
-      <div id="output">
+
+    <div id="alert_message"></div>
+    <!-- <button onclick="goToEdit();" id="goToEdit" class="btn btn-dark">
+      Tagasi -->
+    </button>
+    <div class="input-group mb-3 btn-toolbar" id="inputDiv">
+      <button onclick="goToEdit();" id="goToEdit" class="btn btn-light">
+        Tagasi
+      </button>
+      <button id="clearButton" onclick="clearInput();">Clear</button>
+      <div class="custom-file">
+        <input
+          type="file"
+          class="custom-file-input"
+          id="inputFile"
+          accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+        />
+        <label class="custom-file-label" for="inputGroupFile03"
+          >Lisa Exceli fail</label
+        >
       </div>
+      <button id="saveButton" onclick="sendJSON();">Save</button>
+    </div>
+    <div id="output"></div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
