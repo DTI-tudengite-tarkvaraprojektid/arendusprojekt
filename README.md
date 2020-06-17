@@ -1,3 +1,8 @@
+# Õppenõustaja päevik
+Projekt on loodud Tallinna Ülikooli Digitehnoloogiate instituudi tarkvaraarenduse projekti raames.
+
+## Pildid
+
 ## Eesmärk
 Õppenõustaja päevik võimaldab õppenõustajal teha tudengi kohta märkmeid ja saada tudengite kohta ülevaadet.
 
