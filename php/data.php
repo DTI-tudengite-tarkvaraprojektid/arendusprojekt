@@ -1,6 +1,7 @@
 <?php
 
     require 'config.php';
+    require 'functions.php';
 
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
@@ -49,11 +50,11 @@
                     echo 'lisab';
                     echo $conn -> error;
                     $stmt -> bind_param(
-                    "sssssssssssssssssss", $allData[$x][$results[0]],$allData[$x][$results[1]], $allData[$x][$results[2]], 
-                    $allData[$x][$results[3]], $allData[$x][$results[4]],$allData[$x][$results[5]],$allData[$x][$results[6]],$allData[$x][$results[7]],
-                    $allData[$x][$results[8]],$allData[$x][$results[9]],$allData[$x][$results[10]],$allData[$x][$results[11]],$allData[$x][$results[12]],
-                    $allData[$x][$results[13]],$allData[$x][$results[14]],$allData[$x][$results[15]],$allData[$x][$results[16]],$allData[$x][$results[17]],
-                    $allData[$x][$results[18]]);
+                    "sssssssssssssssssss", test_input($allData[$x][$results[0]]),test_input($allData[$x][$results[1]]), test_input($allData[$x][$results[2]]), 
+                    test_input($allData[$x][$results[3]]), test_input($allData[$x][$results[4]]),test_input($allData[$x][$results[5]]),test_input($allData[$x][$results[6]]),
+                    test_input($allData[$x][$results[7]]),test_input($allData[$x][$results[8]]),test_input($allData[$x][$results[9]]),test_input($allData[$x][$results[10]]),
+                    test_input($allData[$x][$results[11]]),test_input($allData[$x][$results[12]]),test_input($allData[$x][$results[13]]),test_input($allData[$x][$results[14]]),
+                    test_input($allData[$x][$results[15]]),test_input($allData[$x][$results[16]]),test_input($allData[$x][$results[17]]),test_input($allData[$x][$results[18]]));
 
                     $result3 = $stmt -> execute();
                     //$stmt->store_result();
@@ -88,65 +89,6 @@
         $result = mysqli_query($conn, $createDb);
         }
     
-    
-        // ---------- statements ------------
-
-
-
-        //$stmt2 = $conn -> prepare("SELECT * FROM Opilased WHERE opilaskood = ?");
-
-        //$stmt2 = $conn -> prepare("SELECT CASE WHEN EXISTS (SELECT * FROM Opilased WHERE opilaskood = ?) THEN 'TRUE' ELSE 'FALSE' END");
-
-        /*$stmt3 = $conn -> prepare(" UPDATE Opilased SET pnimi= ?,enimi= ?,idkood= ?,email= ?,
-        email_kool= ?,oppekava= ?,suund= ?,finants= ?,tasumata_arved= ?,koormus= ?,sem= ?,
-        puhkusel= ?,valisoppe_sem= ?,etapp= ?,eap= ?,kkh_ap= ?,kkh_eap= ?,kkh_koik= ? WHERE opilaskood = ?");
-        */
-
-            /*
-            echo $allData[$x][$results[5]];
-            $stmt2 -> bind_param("s", $allData[$x][$results[5]]);
-            $result2 = $stmt2 -> execute();
-            
-            
-            $stmt2->store_result();
-            $needs_editing = $stmt2->fetch();
-            echo 'asdas' .mysqli_num_rows($needs_editing);
-            print_r( 'VAATA!!!:' .$needs_editing);
-            $stmt2 -> close();
-            $conn->next_result();
-            $needs_editing -> close();
-            
-            
-            if($needs_editing){
-                $stmt2->free_result();
-                $stmt2 -> close();
-                echo 'uuendab';
-                $stmt3 -> bind_param("sssssssssssssssssss", $allData[$x][$results[0]],$allData[$x][$results[1]], $allData[$x][$results[2]], 
-                $allData[$x][$results[3]], $allData[$x][$results[4]],$allData[$x][$results[6]],$allData[$x][$results[7]],
-                $allData[$x][$results[8]],$allData[$x][$results[9]],$allData[$x][$results[10]],$allData[$x][$results[11]],$allData[$x][$results[12]],
-                $allData[$x][$results[13]],$allData[$x][$results[14]],$allData[$x][$results[15]],$allData[$x][$results[16]],$allData[$x][$results[17]],
-                $allData[$x][$results[18]],$allData[$x][$results[5]]);
-                $stmt3 -> execute();
-                $stmt3->store_result();
-                //$conn->next_result();
-                $x++;
-            } else {
-                $stmt2->free_result();
-                $stmt2 -> close();
-                echo 'lisab';
-                echo $conn -> error;
-                $stmt -> bind_param(
-                    "sssssssssssssssssss", $allData[$x][$results[0]],$allData[$x][$results[1]], $allData[$x][$results[2]], 
-                    $allData[$x][$results[3]], $allData[$x][$results[4]],$allData[$x][$results[5]],$allData[$x][$results[6]],$allData[$x][$results[7]],
-                    $allData[$x][$results[8]],$allData[$x][$results[9]],$allData[$x][$results[10]],$allData[$x][$results[11]],$allData[$x][$results[12]],
-                    $allData[$x][$results[13]],$allData[$x][$results[14]],$allData[$x][$results[15]],$allData[$x][$results[16]],$allData[$x][$results[17]],
-                    $allData[$x][$results[18]]);
-
-                $result3 = $stmt -> execute();
-                $stmt->store_result();
-                $x++;
-            } */
-            
 
         
         
@@ -156,14 +98,6 @@
         $conn -> close();
     }
         
-
-
-        //$stmt -> close();
-        //$stmt3 -> close();
-        //$conn -> close();
-        
-    
-    
 
     
     

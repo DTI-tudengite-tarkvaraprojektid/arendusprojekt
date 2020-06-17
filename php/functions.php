@@ -75,3 +75,10 @@ function changePassword($oldPassword, $password){
       $conn->close();
     return $notice;
 }
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
