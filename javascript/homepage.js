@@ -1,7 +1,7 @@
 $(document).ready(function(){
     fetchData()
     fetchNotes()
-    fetchStudentNotes()
+   // fetchStudentNotes()
     
     $("#cancel").hide()
 
