@@ -13,9 +13,11 @@ $(document).ready(function(){
             "language" : {
                 "search" : "Otsi: "
             },
+            /*
             select: {
                 style: 'multi'
             },
+            */
             "order" : [],
             "ajax" : {
                 url : "php/getdata.php",
