@@ -1,10 +1,10 @@
 $(document).ready(function(){
     $.ajax({
         url: "php/checksession.php",
-        method:"post",
+        method:"POST",
         success: function(data){
             if(data != 'hea'){
-                window.location.replace("login.php"); 
+                window.location.replace("index.php"); 
                 console.log(data)
             } else {
                 console.log(data)
@@ -17,7 +17,7 @@ $(document).ready(function(){
             url: "php/logout.php",
             method: "POST",
             success: function(){
-                window.location.replace("login.php"); 
+                window.location.replace("index.php"); 
             }
         })
     })
