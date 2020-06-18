@@ -4,7 +4,7 @@
     session_start();
     $conn = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
     if(isset($_POST["array"]) && isset($_POST["note"])){
-        $stmt = $conn -> prepare("INSERT INTO Markmed (Userid, Opilaseid, marge) VALUES(?,?,?) ON DUPLICATE KEY UPDATE marge=CONCAT(marge, ?)");
+        $stmt = $conn -> prepare("INSERT INTO Markmed (Kasutajaid, Opilaseid, marge) VALUES(?,?,?) ON DUPLICATE KEY UPDATE marge=CONCAT(marge, ?)");
         $object = json_decode($_POST['array'], TRUE);
         for ($i=0; $i < count($object); $i++) {
 

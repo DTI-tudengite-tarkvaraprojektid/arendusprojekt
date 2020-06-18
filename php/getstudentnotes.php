@@ -2,7 +2,7 @@
     session_start();
     require 'config.php';
     $conn = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-    $stmt = $conn -> prepare("SELECT marge FROM Markmed WHERE Userid = ?");
+    $stmt = $conn -> prepare("SELECT marge FROM Markmed WHERE Kasutajaid = ?");
     $stmt -> bind_param("i", $_SESSION['userId']);
     $stmt -> execute();
     $stmt->store_result();

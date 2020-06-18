@@ -4,14 +4,18 @@ Projekt on loodud Tallinna Ülikooli Digitehnoloogiate instituudi tarkvaraarendu
 ## Pildid
 
 ## Eesmärk
-Õppenõustaja päevik võimaldab õppenõustajal teha tudengi kohta märkmeid ja saada tudengite kohta ülevaadet.
+Eesmärgiks oli luua õppenõustajale rakendus, kuhu saaks exceli tabelist sisse lugeda tudengite andmed ning tudengite profiilile kirjutada tudengite kohta märkmeid. 
 
 ## Kasutatud tehnoloogiad
 * HTML
-* PHP
+* PHP 5.6.40
 * CSS
 * JavaScript
 * MySQL
+* jQuery 3.5.1
+* jQuery Tabledit
+* SheetJS
+* Bootstrap 4.5.0 
 
 ## Projekti meeskond
 * Filip Taik
@@ -19,6 +23,11 @@ Projekt on loodud Tallinna Ülikooli Digitehnoloogiate instituudi tarkvaraarendu
 * Roos-Marie Lunden
 
 ## Paigaldusjuhised
+Leht on kättesaadav Tallinna Ülikooli serverist, et kasutada ülikooli veebipuhvrit väljaspool kooli arvutivõrku on vajalik luua tunnel lin2.tlu.ee näiteks kasutades tarkvara Putty. 
+
+#### Enda serverisse paigaldamiseks:
+* Lae alla kõik failis repositooriumist
+* Loo tabelid allpool olevate käskudega
 
 #### MySQL tabelite skriptid:
 ```
