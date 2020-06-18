@@ -2,6 +2,9 @@
 Projekt on loodud Tallinna Ülikooli Digitehnoloogiate instituudi tarkvaraarenduse projekti raames.
 
 ## Pildid
+![avaleht](https://github.com/filiptaik/arendusprojekt/blob/master/pics/avaleht1.jpg)
+
+![tudengid](https://github.com/filiptaik/arendusprojekt/blob/master/pics/tudengid.jpg)
 
 ## Eesmärk
 Eesmärgiks oli luua õppenõustajale rakendus, kuhu saaks exceli tabelist sisse lugeda tudengite andmed ning tudengite profiilile kirjutada tudengite kohta märkmeid. 
@@ -35,7 +38,9 @@ CREATE TABLE `Kasutaja` (
 `id` INT(11) NOT NULL AUTO_INCREMENT , 
 `kasutajanimi` VARCHAR(30) NOT NULL , 
 `parool` VARCHAR(60) NOT NULL , 
-PRIMARY KEY (`id`)) ENGINE = InnoDB;
+PRIMARY KEY (`id`)
+KEY `id` (`id`)
+) ENGINE = InnoDB;
 
 CREATE TABLE `Markmed` (
 `id` INT(11) NOT NULL AUTO_INCREMENT , 
@@ -43,26 +48,17 @@ CREATE TABLE `Markmed` (
 `Opilasedid` INT(11) NOT NULL , 
 `marge` VARCHAR(256) NOT NULL , 
 `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
-`deleted` DATE NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
-
-CREATE TABLE `Silt` ( 
-`id` INT(11) NOT NULL AUTO_INCREMENT , 
-`nimi` VARCHAR(50) NOT NULL, 
-`varv` VARCHAR(7) NOT NULL, 
-PRIMARY KEY (`id`)) ENGINE = InnoDB;
+`deleted` DATE NULL , PRIMARY KEY (`Opilasedid`)
+KEY `id` (`id`)
+) ENGINE = InnoDB;
 
 CREATE TABLE `Isiklik_marge` ( 
 `id` INT(11) NOT NULL AUTO_INCREMENT , 
 `Kasutajaid` INT(11) NOT NULL , 
 `marge` VARCHAR(2000) NOT NULL, 
-PRIMARY KEY (`id`)) ENGINE = InnoDB;
-
-CREATE TABLE `Op_silt` ( 
-`id` INT(11) NOT NULL AUTO_INCREMENT , 
-`Kasutajaid` INT(11) NOT NULL , 
-`Siltid` INT(11) NOT NULL, 
-`Opilasedid` INT(11) NOT NULL, 
-PRIMARY KEY (`id`)) ENGINE = InnoDB;
+PRIMARY KEY (`Kasutajaid`),
+KEY `id` (`id`)
+) ENGINE = InnoDB;
 
 "CREATE TABLE Opilased (
 id INT AUTO_INCREMENT,
