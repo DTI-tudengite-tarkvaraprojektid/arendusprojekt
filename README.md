@@ -64,6 +64,28 @@ CREATE TABLE `Op_silt` (
 `Opilasedid` INT(11) NOT NULL, 
 PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
+"CREATE TABLE Opilased (
+id INT AUTO_INCREMENT,
+pnimi VARCHAR(50) NOT NULL,
+enimi VARCHAR(50) ,
+idkood VARCHAR(50),
+email VARCHAR(50),
+email_kool VARCHAR(50),
+opilaskood VARCHAR(50) PRIMARY KEY NOT NULL,
+oppekava VARCHAR(50),
+suund VARCHAR(50),
+finants VARCHAR(50),
+tasumata_arved VARCHAR(50),
+koormus VARCHAR(50),
+sem VARCHAR(50),
+puhkusel VARCHAR(50),
+valisoppe_sem VARCHAR(50),
+etapp VARCHAR(50),
+eap VARCHAR(20),
+kkh_ap VARCHAR(20),
+kkh_eap VARCHAR(20),
+kkh_koik VARCHAR(20),
+)  ENGINE=INNODB;";
 
 ```
 ## Litsents
