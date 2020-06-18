@@ -42,38 +42,5 @@ function login ($username, $password){
 	return $notice;
 }
 
-function changePassword($oldPassword, $password){
-    //vana parooli kontroll
-    $notice = "";
-    $conn = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-    $stmt = $conn->prepare("SELECT parool FROM Kasutaja WHERE id=?");
-    echo $conn->error;
-    $stmt->bind_param("i", $_SESSION["userId"]);
-    $stmt->bind_result($passwordFromDb);
-    if($stmt->execute()){
-      if($stmt->fetch()){
-        if(password_verify($oldPassword, $passwordFromDb)){
-            $stmt->close();
-            $stmt = $conn->prepare("UPDATE Kasutaja SET parool = ? WHERE id = ?");
-            $options = ["cost" => 12, "salt" => substr(sha1(rand()), 0, 22)];
-            $pwdhash = password_hash($password,PASSWORD_BCRYPT, $options );
-            $stmt->bind_param("si", $pwdhash, $_SESSION["userId"]);
-            if($stmt->execute()){
-              $notice = "Uue parooli salvestamine õnnestus!";
-            } else {
-              $notice = "Parooli salvestamisel tekkis tehniline viga: " .$stmt->error;
-            }
-        } else {
-            $notice = "Sisestasite vale parooli! Proovige uuesti!";
-        }
-            
-      } else {
-          $notice = "Tekkis viga (vale kasutaja id)!";
-      }
-    }
-      $stmt->close();
-      $conn->close();
-    return $notice;
-}
 
 
