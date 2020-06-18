@@ -1,7 +1,7 @@
 <?php
 
     require 'config.php';
-    require 'functions.php';
+    require 'functions_main.php';
 
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 

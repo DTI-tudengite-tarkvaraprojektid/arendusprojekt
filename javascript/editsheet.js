@@ -141,8 +141,8 @@ $(document).ready(function(){
 
     $('#insert_form').on("submit", function(event){  
         //event.preventDefault();  
-        if($('#lname').val() == "") {  
-             alert("Sisestage perekonnanimi");  
+        if($('#lname').val() == "" && $('student_id').val == "") {  
+             alert("Perekonnanimi ja üliõpilaskood on kohustuslikud väljad!");  
         } else {  
              $.ajax({  
                   url:"php/insertdata.php",  

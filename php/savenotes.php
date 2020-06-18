@@ -5,7 +5,7 @@
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     require 'config.php';
-    require 'functions.php';
+    require 'functions_main.php';
     //echo session_id();
     $conn = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
     if(isset($_POST["noteDataPersonal"])){

@@ -1,6 +1,7 @@
 $(document).ready(function(){
     fetchData()
     fetchNotes()
+
    // fetchStudentNotes()
     
     $("#cancel").hide()
@@ -17,7 +18,7 @@ $(document).ready(function(){
         })
     }
 
-    // Fetch  Student notes //
+    // Fetch  Student notes ---  POLE VAJA //
 
     function fetchStudentNotes(){
         var notesBox = $('#noteArea');
@@ -133,25 +134,30 @@ $(document).ready(function(){
         })
 
     })
+    
+    // Show different tabs
+    
+
+        $('.tabs-menu a').click(function (event) {
+          event.preventDefault()
+    
+          // Toggle active class on tab buttons
+          $(this).parent().addClass('current')
+          $(this).parent().siblings().removeClass('current')
+    
+          // display only active tab content
+          var activeTab = $(this).attr('href')
+          $('.tab-content').not(activeTab).css('display', 'none')
+          $(activeTab).fadeIn()
+        })
+    
+    
+
+   //document.getElementById("tab-1").click();
+        
 
 
 
 })
 
-// Show different tabs
 
-$(document).ready(function () {
-    $('.tabs-menu a').click(function (event) {
-      event.preventDefault();
-
-      // Toggle active class on tab buttons
-      $(this).parent().addClass('current');
-      $(this).parent().siblings().removeClass('current');
-
-      // display only active tab content
-      var activeTab = $(this).attr('href');
-      $('.tab-content').not(activeTab).css('display', 'none');
-      $(activeTab).fadeIn();
-    });
-  });
-    

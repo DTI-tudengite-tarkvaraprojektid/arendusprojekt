@@ -1,6 +1,6 @@
 <?php
     require 'config.php';
-    require 'functions.php';
+    require 'functions_main.php';
     session_start();
     $conn = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
     if(isset($_POST["array"]) && isset($_POST["note"])){

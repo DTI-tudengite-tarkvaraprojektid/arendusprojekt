@@ -1,6 +1,6 @@
 <?php
     require 'config.php';
-    require 'functions.php';
+    require 'functions_main.php';
     $conn = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 
     if(isset($_POST["new_note"]) && isset($_POST["id"])){
