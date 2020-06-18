@@ -23,7 +23,7 @@ Eesmärgiks oli luua õppenõustajale rakendus, kuhu saaks exceli tabelist sisse
 * Roos-Marie Lunden
 
 ## Paigaldusjuhised
-Leht on kättesaadav Tallinna Ülikooli serverist, et kasutada ülikooli veebipuhvrit väljaspool kooli arvutivõrku on vajalik luua tunnel lin2.tlu.ee näiteks kasutades tarkvara Putty. 
+Leht on kättesaadav Tallinna Ülikooli serverist, et kasutada ülikooli veebipuhvrit väljaspool kooli arvutivõrku on vajalik luua tunnel lin2.tlu.ee näiteks kasutades tarkvara Putty. Lehel pääseb [siit](http://greeny.cs.tlu.ee/~filiptai/arendusprojekt/arendusprojekt/login.php)
 
 #### Enda serverisse paigaldamiseks:
 * Lae alla kõik failis repositooriumist (https://github.com/filiptaik/arendusprojekt)
@@ -89,4 +89,4 @@ kkh_koik VARCHAR(20),
 
 ```
 ## Litsents
-https://github.com/filiptaik/arendusprojekt/blob/master/LICENSE.txt
+[Litsents](https://github.com/filiptaik/arendusprojekt/blob/master/LICENSE.txt)
