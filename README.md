@@ -32,6 +32,16 @@ Leht on kättesaadav Tallinna Ülikooli serverist, et kasutada ülikooli veebipu
 * Lae alla kõik failis repositooriumist (https://github.com/filiptaik/arendusprojekt)
 * Loo tabelid allpool olevate käskudega
 
+### config.php näide:
+```
+<?php
+	$serverHost = "******";
+	$serverUsername = "*****";
+	$serverPassword = "*******";
+	$database = "*******";
+?>
+```
+
 #### MySQL tabelite skriptid:
 ```
 CREATE TABLE `Kasutaja` ( 
