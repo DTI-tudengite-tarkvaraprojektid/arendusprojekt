@@ -81,6 +81,7 @@ eap VARCHAR(20),
 kkh_ap VARCHAR(20),
 kkh_eap VARCHAR(20),
 kkh_koik VARCHAR(20),
+KEY `id` (`id`)
 )  ENGINE=INNODB;";
 
 ```
