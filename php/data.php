@@ -1,7 +1,7 @@
 <?php
 
     require 'config.php';
-    require 'functions_main.php';
+    require 'function_main.php';
 
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
@@ -42,24 +42,42 @@
             email_kool= VALUES(email_kool),opilaskood = VALUES(opilaskood),oppekava= VALUES(oppekava),suund= VALUES(suund),finants= VALUES(finants),
             tasumata_arved= VALUES(tasumata_arved),koormus= VALUES(koormus),sem= VALUES(sem),puhkusel= VALUES(puhkusel),valisoppe_sem= VALUES(valisoppe_sem),
             etapp= VALUES(etapp),eap= VALUES(eap),kkh_ap= VALUES(kkh_ap),kkh_eap= VALUES(kkh_eap),kkh_koik= VALUES(kkh_koik)");
+            
+            $x = 0;
+            while($x <= count($allData)  ) {
+                $pnimi = test_input($allData[$x][$results[0]]);
+                $enimi = test_input($allData[$x][$results[1]]);
+                $idkood = test_input($allData[$x][$results[2]]);
+                $email = test_input($allData[$x][$results[3]]);
+                $email_kool = test_input($allData[$x][$results[4]]);
+                $opilaskood = test_input($allData[$x][$results[5]]);
+                $oppekava = test_input($allData[$x][$results[6]]);
+                $suund = test_input($allData[$x][$results[7]]);
+                $finants = test_input($allData[$x][$results[8]]);
+                $tasumata_arved = test_input($allData[$x][$results[9]]);
+                $koormus = test_input($allData[$x][$results[10]]);
+                $sem = test_input($allData[$x][$results[11]]);
+                $puhkusel = test_input($allData[$x][$results[12]]);
+                $valisoppe_sem = test_input($allData[$x][$results[13]]);
+                $etapp = test_input($allData[$x][$results[14]]);
+                $eap = test_input($allData[$x][$results[15]]);
+                $kkh_ap = test_input($allData[$x][$results[16]]);
+                $kkh_eap = test_input($allData[$x][$results[17]]);
+                $kkh_koik = test_input($allData[$x][$results[18]]);
 
-                $x = 0;
-                while($x <= count($allData)  ) {
-                    //$stmt2->free_result();
-                    //$stmt2 -> close();
-                    echo 'lisab';
-                    echo $conn -> error;
-                    $stmt -> bind_param(
-                    "sssssssssssssssssss", test_input($allData[$x][$results[0]]),test_input($allData[$x][$results[1]]), test_input($allData[$x][$results[2]]), 
-                    test_input($allData[$x][$results[3]]), test_input($allData[$x][$results[4]]),test_input($allData[$x][$results[5]]),test_input($allData[$x][$results[6]]),
-                    test_input($allData[$x][$results[7]]),test_input($allData[$x][$results[8]]),test_input($allData[$x][$results[9]]),test_input($allData[$x][$results[10]]),
-                    test_input($allData[$x][$results[11]]),test_input($allData[$x][$results[12]]),test_input($allData[$x][$results[13]]),test_input($allData[$x][$results[14]]),
-                    test_input($allData[$x][$results[15]]),test_input($allData[$x][$results[16]]),test_input($allData[$x][$results[17]]),test_input($allData[$x][$results[18]]));
+                //$stmt2->free_result();
+                //$stmt2 -> close();
+                echo 'lisab';
+                echo $conn -> error;
+                $stmt -> bind_param(
+                "sssssssssssssssssss", $pnimi,$enimi,$idkood,$email,$email_kool,$opilaskood,$oppekava,$suund,$finants,
+                $tasumata_arved,$koormus,$sem,$puhkusel,$valisoppe_sem,$etapp,$eap,$kkh_ap,$kkh_eap,$kkh_koik
+                );
 
-                    $result3 = $stmt -> execute();
-                    //$stmt->store_result();
-                    $x++;
-                }
+                $result3 = $stmt -> execute();
+                //$stmt->store_result();
+                $x++;
+            }
             $stmt->close();
         } else {
             $stmt4 -> close();

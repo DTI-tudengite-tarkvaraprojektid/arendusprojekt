@@ -37,6 +37,7 @@
       src="https://kit.fontawesome.com/1d0880533d.js"
       crossorigin="anonymous"
     ></script>
+
     <title>Input data</title>
   </head>
 
@@ -91,10 +92,7 @@
       Tagasi -->
     </button>
     <div class="input-group mb-3 btn-toolbar" id="inputDiv">
-      <button onclick="goToEdit();" id="goToEdit" class="btn btn-light">
-        Tagasi
-      </button>
-      <button id="clearButton" onclick="clearInput();">Clear</button>
+      <button id="clearButton" onclick="clearInput();">Puhasta</button>
       <div class="custom-file">
         <input
           type="file"
@@ -103,10 +101,10 @@
           accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
         />
         <label class="custom-file-label" for="inputGroupFile03"
-          >Lisa Exceli fail</label
+          >Lisa Excel</label
         >
       </div>
-      <button id="saveButton" onclick="sendJSON();">Save</button>
+      <button id="saveButton" onclick="sendJSON();">Salvesta</button>
     </div>
     <div id="output"></div>
 
@@ -120,5 +118,8 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
+    <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/2.1.0/bootstrap-filestyle.min.js">
+  </script>
   </body>
 </html>

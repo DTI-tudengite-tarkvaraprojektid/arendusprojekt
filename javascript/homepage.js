@@ -36,7 +36,7 @@ $(document).ready(function () {
     var dataTable = $('#students_right').dataTable({
       processing: true,
       serverSide: true,
-      paging: false,
+      paging: true,
       info: false,
       scrollY: 400,
       scrollX: 0,
@@ -54,6 +54,13 @@ $(document).ready(function () {
         selector: 'td:first-child',
       },
       language: {
+        "paginate": {
+            "first":      "Esimene",
+            "last":       "Viimane",
+            "next":       "Järgmine",
+            "previous":   "Eelmine"
+        },
+        "lengthMenu": "Näita _MENU_ kirjet",
         search: 'Otsi: ',
       },
       order: [1, 'asc'],
@@ -84,7 +91,7 @@ $(document).ready(function () {
     console.log(noteDataPersonal);
     $.ajax({
       url: 'php/savenotes.php',
-      method: 'post',
+      method: 'POST',
       data: { noteDataPersonal: noteDataPersonal },
       success: function () {
         window.alert('Märge salvestatud');

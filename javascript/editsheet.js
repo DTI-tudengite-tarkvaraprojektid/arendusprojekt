@@ -11,7 +11,15 @@ $(document).ready(function(){
             "processing" : true,
             "serverSide" : true,
             "language" : {
-                "search" : "Otsi: "
+                "info": "Kokku: _TOTAL_ | Kuvatud:  _START_ - _END_",
+                "lengthMenu": "Näita _MENU_ kirjet",
+                "search" : "Otsi: ",
+                "paginate": {
+                    "first":      "Esimene",
+                    "last":       "Viimane",
+                    "next":       "Järgmine",
+                    "previous":   "Eelmine"
+                },
             },
             /*
             select: {
