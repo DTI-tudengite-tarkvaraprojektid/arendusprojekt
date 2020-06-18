@@ -89,3 +89,4 @@ kkh_koik VARCHAR(20),
 
 ```
 ## Litsents
+https://github.com/filiptaik/arendusprojekt/blob/master/LICENSE.txt
