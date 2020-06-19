@@ -2,7 +2,7 @@
 
 
     require 'config.php';
-    require 'functions_main.php';
+    require 'function_main.php';
 
     $conn = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 
@@ -17,11 +17,12 @@
             SET pnimi= ?,enimi= ?,idkood= ?,email= ?,email_kool= ?,opilaskood= ?,oppekava= ?,suund= ?,finants= ?,tasumata_arved= ?,koormus= ?,sem= ?,
             puhkusel= ?,valisoppe_sem= ?,etapp= ?,eap= ?,kkh_ap= ?,kkh_eap= ?,kkh_koik= ? WHERE id = ?
             ");
-            $stmt->bind_param('sssssssssssssssssssi',test_input($_POST["lname"]),test_input($_POST["fname"]),test_input($_POST["idcode"]),test_input($_POST["email"])
-            ,test_input($_POST["email_school"]),test_input($_POST["student_id"]),test_input($_POST["field"]),test_input($_POST["spec"]),test_input($_POST["finance"])
-            ,test_input($_POST["unpaid"]),test_input($_POST["load"]),test_input($_POST["sem"]),test_input($_POST["break"]),test_input($_POST["abroad"])
-            ,test_input($_POST["finish"]),test_input($_POST["eap"]),test_input($_POST["kkh_ap"]),test_input($_POST["kkh_eap"]),test_input($_POST["kkh_all"])
-            ,test_input($_POST['id']));
+            
+            $stmt->bind_param('sssssssssssssssssssi',$_POST["lname"],$_POST["fname"],$_POST["idcode"],$_POST["email"]
+            ,$_POST["email_school"],$_POST["student_id"],$_POST["field"],$_POST["spec"],$_POST["finance"]
+            ,$_POST["unpaid"],$_POST["load"],$_POST["sem"],$_POST["break"],$_POST["abroad"]
+            ,$_POST["finish"],$_POST["eap"],$_POST["kkh_ap"],$_POST["kkh_eap"],$_POST["kkh_all"]
+            ,$_POST['id']);
             $stmt->execute();
             $message = 'Andmed uuendatud';  
         } else {
@@ -30,10 +31,10 @@
                 suund, finants, tasumata_arved, koormus, sem, puhkusel, valisoppe_sem, etapp, eap, kkh_ap, kkh_eap, kkh_koik) 
                 VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
             );
-            $stmt->bind_param('sssssssssssssssssss'test_input($_POST["lname"]),test_input($_POST["fname"]),test_input($_POST["idcode"]),test_input($_POST["email"])
-            ,test_input($_POST["email_school"]),test_input($_POST["student_id"]),test_input($_POST["field"]),test_input($_POST["spec"]),test_input($_POST["finance"])
-            ,test_input($_POST["unpaid"]),test_input($_POST["load"]),test_input($_POST["sem"]),test_input($_POST["break"]),test_input($_POST["abroad"])
-            ,test_input($_POST["finish"]),test_input($_POST["eap"]),test_input($_POST["kkh_ap"]),test_input($_POST["kkh_eap"]),test_input($_POST["kkh_all"]));
+            $stmt->bind_param('sssssssssssssssssss', $_POST["lname"],$_POST["fname"],$_POST["idcode"],$_POST["email"]
+            ,$_POST["email_school"],$_POST["student_id"],$_POST["field"],$_POST["spec"],$_POST["finance"]
+            ,$_POST["unpaid"],$_POST["load"],$_POST["sem"],$_POST["break"],$_POST["abroad"]
+            ,$_POST["finish"],$_POST["eap"],$_POST["kkh_ap"],$_POST["kkh_eap"],$_POST["kkh_all"]);
             $done = $stmt->execute();
             $message = 'Andmed lisatud';
         }
