@@ -54,6 +54,7 @@ $(document).ready(function () {
         selector: 'td:first-child',
       },
       language: {
+        "zeroRecords":    "Kirjed puuduvad",
         "paginate": {
             "first":      "Esimene",
             "last":       "Viimane",

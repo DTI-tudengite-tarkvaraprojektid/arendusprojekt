@@ -11,6 +11,7 @@ $(document).ready(function(){
             "processing" : true,
             "serverSide" : true,
             "language" : {
+                "zeroRecords":    "Kirjed puuduvad",
                 "info": "Kokku: _TOTAL_ | Kuvatud:  _START_ - _END_",
                 "lengthMenu": "Näita _MENU_ kirjet",
                 "search" : "Otsi: ",
