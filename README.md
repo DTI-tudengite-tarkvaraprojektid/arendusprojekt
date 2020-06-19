@@ -29,6 +29,12 @@ Eesmärgiks oli luua õppenõustajale rakendus, kuhu saaks exceli tabelist sisse
 Leht on kättesaadav Tallinna Ülikooli serverist, et kasutada ülikooli veebipuhvrit väljaspool kooli arvutivõrku on vajalik luua tunnel lin2.tlu.ee näiteks kasutades tarkvara Putty. Lehel pääseb [siit](http://greeny.cs.tlu.ee/~filiptai/arendusprojekt/arendusprojekt/login.php)
 
 #### Enda serverisse paigaldamiseks:
+* Lae alla PHP 5.6.40
+* Lae alla jQuery 3.5.1
+* Lae alla jQuery Tabledit
+* Lae alla SheetJS
+* Lae alla Bootstrap 4.5.0
+* Loo MySQL andmebaasi keskkond
 * Lae alla kõik failis repositooriumist (https://github.com/filiptaik/arendusprojekt)
 * Loo tabelid allpool olevate käskudega
 
