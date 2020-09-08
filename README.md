@@ -20,10 +20,6 @@ Eesmärgiks oli luua õppenõustajale rakendus, kuhu saaks exceli tabelist sisse
 * SheetJS
 * Bootstrap 4.5.0 
 
-## Projekti meeskond
-* Filip Taik
-* Hannele Pruunlep
-* Roos-Marie Lunden
 
 ## Paigaldusjuhised
 Leht on kättesaadav Tallinna Ülikooli serverist, et kasutada ülikooli veebipuhvrit väljaspool kooli arvutivõrku on vajalik luua tunnel lin2.tlu.ee näiteks kasutades tarkvara Putty. Lehel pääseb [siit](http://greeny.cs.tlu.ee/~filiptai/arendusprojekt/arendusprojekt/login.php)
